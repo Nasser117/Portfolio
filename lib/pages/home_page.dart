@@ -86,7 +86,7 @@ class _HomePageState extends State<HomePage> {
               controller: _scrollController,
               child: Column(
                 children: [
-                  ContactSection(key: _sectionKeys['contact']),
+                  // ContactSection(key: _sectionKeys['contact']),
 
                   HeroSection(key: _sectionKeys['home']),
                   AboutMeSection(key: _sectionKeys['about']),
@@ -95,7 +95,7 @@ class _HomePageState extends State<HomePage> {
                   UIUXSection(key: _sectionKeys['uiux']),
                   CoursesSection(key: _sectionKeys['courses']),
                   // VolunteeringSection(key: _sectionKeys['volunteering']),
-                  // ContactSection(key: _sectionKeys['contact']),
+                  ContactSection(key: _sectionKeys['contact']),
                   const Footer(),
                 ],
               ),
