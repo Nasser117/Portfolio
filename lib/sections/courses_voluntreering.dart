@@ -12,6 +12,7 @@ final List<Map<String, dynamic>> coursesData = [
     'platform': 'Google',
     'year': '2025',
     'borderColor': AppTheme.primaryCyan,
+    'url':'',
     'icon': 'assets/icons/google.png',
     'description':
         'Developed foundational skills in troubleshooting, customer service, networking, and system administration.',
@@ -21,6 +22,7 @@ final List<Map<String, dynamic>> coursesData = [
     'platform': 'Google',
     'year': '2025',
     'borderColor': AppTheme.accentYellow,
+    'url':'',
     'icon': 'assets/icons/google.png',
     'description':
         'Mastered the end-to-end design process, from user research and wireframing to high-fidelity prototyping.',
@@ -30,6 +32,7 @@ final List<Map<String, dynamic>> coursesData = [
     'platform': 'Google',
     'year': '2024',
     'borderColor': AppTheme.primaryCyan,
+    'url':'',
     'icon': 'assets/icons/google.png',
     'description':
         'Proficient in Agile and Waterfall methodologies, stakeholder communication, and managing project lifecycles.',
@@ -39,6 +42,7 @@ final List<Map<String, dynamic>> coursesData = [
     'platform': 'IBM',
     'year': '2026',
     'borderColor': AppTheme.accentYellow,
+    'url':'',
     'icon': 'assets/icons/ibmpng.png',
     'description':
         'Mastered cybersecurity essentials, including threat mitigation, data privacy, and incident response to protect critical digital infrastructure.',
@@ -50,18 +54,11 @@ final List<Map<String, dynamic>> volunteeringData = [
     'organization': 'Syrian Association For AI and Entrepreneurhip',
     'date': 'Sep 2025 - Present',
     'logo': 'assets/images/saae.png',
+    'url': 'https://aisyria.org/',
     'borderColor': AppTheme.primaryCyan,
     'description':
         'Participating in tech events and representing the association at national fairs and expeditions to promote AI literacy. Bridging the gap between complex technology and the public, fostering community engagement and ecosystem growth.',
   },
-  //  {
-  //   'organization': 'Syrian Association For AI and Entrepreneurhip',
-  //   'date': 'Sep 2025 - Present',
-  //   'logo': 'assets/images/saae.png',
-  //   'borderColor': AppTheme.accentYellow,
-  //   'description':
-  //       'Participating in tech events and representing the association at national fairs and expeditions to promote AI literacy. Bridging the gap between complex technology and the public, fostering community engagement and ecosystem growth.',
-  // },
 ];
 
 // =======================
@@ -76,13 +73,13 @@ class CoursesSection extends StatelessWidget {
 
     return holderContainer(
       mobile: mobile,
-      horizontalMobilePadding: 24,
-      verticalDesktopPadding: 60,
+      horizontalMobilePadding: AppConstants.spacingM,
+      verticalDesktopPadding: AppConstants.spacingXxl,
       horizontalDesktopPadding: 80,
       verticalMobilePadding: 80,
       title: 'Courses &',
       highlight: 'Learnings',
-      sizedBox01Height: 60,
+      sizedBox01Height: AppConstants.spacingXxl,
       body: Column(
         children: [_buildCoursesList(mobile), const VolunteeringSection()],
       ),
@@ -101,11 +98,13 @@ class CoursesSection extends StatelessWidget {
 
   Widget courseCard(mobile, course) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 24),
-      padding: EdgeInsets.all(mobile ? 20 : 32),
+      margin: const EdgeInsets.only(bottom: AppConstants.spacingM),
+      padding: EdgeInsets.all(
+        mobile ? AppConstants.spacingM : AppConstants.spacingL,
+      ),
       decoration: BoxDecoration(
         color: AppTheme.darkBackground,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(AppConstants.circularM),
         border: Border(
           left:
               mobile
@@ -138,16 +137,21 @@ class CoursesSection extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        Expanded(
-                          child: Text(
-                            course['title'],
-                            style: TextStyle(
-                              fontSize: mobile ? 16 : 18,
-                              fontWeight: FontWeight.w600,
-                              color: AppTheme.textPrimary,
-                            ),
-                          ),
+                        HoverLinkText(
+                          text: course['title'],
+                          url: course['url'],
+                          mobile: mobile,
                         ),
+                        // Expanded(
+                        //   child: Text(
+                        //     course['title'],
+                        //     style: TextStyle(
+                        //       fontSize: mobile ? 16 : 18,
+                        //       fontWeight: FontWeight.w600,
+                        //       color: AppTheme.textPrimary,
+                        //     ),
+                        //   ),
+                        // ),
                         Text(
                           course['year'],
                           style: TextStyle(
@@ -158,12 +162,12 @@ class CoursesSection extends StatelessWidget {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 8),
+                    const SizedBox(height: AppConstants.spacingXs),
                     Row(
                       children: [
                         CircleAvatar(
                           backgroundColor: Colors.white,
-                          radius: 15,
+                          radius: AppConstants.spacingS,
                           backgroundImage: AssetImage(course['icon']),
                         ),
                         Text(
@@ -180,7 +184,7 @@ class CoursesSection extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: AppConstants.spacingS),
           Text(
             course['description'],
             style: TextStyle(
@@ -207,14 +211,14 @@ class VolunteeringSection extends StatelessWidget {
 
     return holderContainer(
       verticalMobilePadding: 40,
-      verticalDesktopPadding: 60,
+      verticalDesktopPadding: AppConstants.spacingXxl,
       horizontalDesktopPadding: 0,
       horizontalMobilePadding: 0,
-      sizedBox01Height: mobile ? 10 : 30,
+      sizedBox01Height: mobile ? AppConstants.spacingXs : AppConstants.spacingL,
       mobile: mobile,
       title: 'Volunteering',
       highlight: 'Experience',
-      body:_buildVolunteeringList(context,mobile ),
+      body: _buildVolunteeringList(context, mobile),
       color: AppTheme.cardBackground,
     );
   }
@@ -234,11 +238,13 @@ class VolunteeringSection extends StatelessWidget {
     bool mobile,
   ) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 24),
-      padding: EdgeInsets.all(mobile ? 24 : 32),
+      margin: const EdgeInsets.only(bottom: AppConstants.spacingM),
+      padding: EdgeInsets.all(
+        mobile ? AppConstants.spacingM : AppConstants.spacingL,
+      ),
       decoration: BoxDecoration(
         color: AppTheme.darkBackground,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(AppConstants.circularM),
         border:
             mobile
                 ? Border.symmetric(
@@ -250,30 +256,47 @@ class VolunteeringSection extends StatelessWidget {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        spacing: 8,
+        spacing: AppConstants.spacingXs,
         children: [
           Row(
             children: [
               //logo
               CircleAvatar(
                 backgroundColor: Colors.white,
-                radius: mobile ? 24 : 32,
+                radius: mobile ? AppConstants.spacingM : AppConstants.spacingL,
                 backgroundImage: AssetImage(data['logo']),
               ),
-              const SizedBox(width: 20),
+              const SizedBox(width: AppConstants.spacingM),
               //name
-              Expanded(
-                flex: 3,
-                child: Text(
-                  data['organization'],
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    fontSize: mobile ? 16 : 18,
-                    fontWeight: FontWeight.w600,
-                    color: AppTheme.textPrimary,
-                  ),
-                ),
+              // Expanded(
+              //   flex: 3,
+              //   child:
+              //   // // ... inside your Row children ...
+              //   // HoverLinkText(
+              //   //   text: data['organization'],
+              //   //   url: 'https://aisyria.org/',
+              //   //   mobile: mobile,
+              //   // ),
+              //   InkWell(
+              //     onTap: () {
+              //       openUrlExternal('https://aisyria.org/');
+              //     },
+              //     child: Text(
+              //       '${data['organization']} 🔗',
+              //       maxLines: 2,
+              //       overflow: TextOverflow.ellipsis,
+              //       style: TextStyle(
+              //         fontSize: mobile ? 16 : 18,
+              //         fontWeight: FontWeight.w600,
+              //         color: AppTheme.textPrimary,
+              //       ),
+              //     ),
+              //   ),
+              // ),
+              HoverLinkText(
+                text: data['organization'],
+                url: data['url'],
+                mobile: mobile,
               ),
               //date
               if (!mobile)
@@ -316,5 +339,58 @@ class VolunteeringSection extends StatelessWidget {
       ),
     );
   }
+}
 
+class HoverLinkText extends StatefulWidget {
+  final String text;
+  final String url;
+  final bool mobile;
+
+  const HoverLinkText({
+    super.key,
+    required this.text,
+    required this.url,
+    required this.mobile,
+  });
+
+  @override
+  State<HoverLinkText> createState() => _HoverLinkTextState();
+}
+
+class _HoverLinkTextState extends State<HoverLinkText> {
+  bool _hovered = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final linkColor = _hovered ? AppTheme.primaryCyan : Colors.white;
+
+    return Expanded(
+      flex: 3,
+      child: MouseRegion(
+        cursor: SystemMouseCursors.click,
+        onEnter: (_) => setState(() => _hovered = true),
+        onExit: (_) => setState(() => _hovered = false),
+        child: InkWell(
+          onTap: () => openUrlExternal(widget.url),
+          splashColor: Colors.transparent,
+          hoverColor: Colors.transparent,
+          child: AnimatedDefaultTextStyle(
+            duration: const Duration(milliseconds: 150),
+            style: TextStyle(
+              fontSize: widget.mobile ? 16 : 18,
+              fontWeight: FontWeight.w600,
+              color: linkColor,
+              decoration:
+                  _hovered ? TextDecoration.underline : TextDecoration.none,
+            ),
+            child: Text(
+              widget.text,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 }

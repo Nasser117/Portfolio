@@ -23,15 +23,15 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
 
     double horizontalPadding;
     if (screenWidth < 600) {
-      horizontalPadding = 16; // small mobile
+      horizontalPadding = AppConstants.spacingS; // small mobile
     } else if (screenWidth < 900) {
-      horizontalPadding = 24; // tablet
+      horizontalPadding = AppConstants.spacingM; // tablet
     } else {
       horizontalPadding = (screenWidth * 0.07).clamp(80, 200); // desktop
     }
 
     return Container(
-      height: 50,
+      height: AppConstants.spacingXl,
       padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
       decoration: BoxDecoration(
         color: Colors.black,
@@ -52,13 +52,11 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
           if (isMobileOrTablet)
             Row(
               children: [
-                Tooltip(
-                  message: 'Download CV',
-                  child: IconButton(
-                    hoverColor: AppTheme.cardBackground,
-                    onPressed: () => openUrlExternal(heroData['cvUrl']),
-                    icon: Icon(FontAwesomeIcons.userTie),
-                  ),
+                IconButton(
+                  hoverColor: AppTheme.cardBackground,
+                  tooltip: 'Download CV',
+                  onPressed: () => openUrlExternal(heroData['cvUrl']),
+                  icon: Icon(FontAwesomeIcons.userTie),
                 ),
                 _buildMobileDrawerButton(),
               ],
@@ -90,7 +88,7 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
           ),
         ),
       ),
-      const SizedBox(width: 16),
+      const SizedBox(width: AppConstants.spacingS),
 
       ElevatedButton(
         onPressed: () => openUrlExternal(heroData['cvUrl']),
@@ -119,7 +117,7 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
     return Drawer(
       child: Container(
         color: AppTheme.cardBackground,
-        padding: const EdgeInsets.symmetric(vertical: 32),
+        padding: const EdgeInsets.symmetric(vertical: AppConstants.spacingL),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -173,6 +171,62 @@ class Footer extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
         ],
+      ),
+    );
+  }
+}
+
+class AppDrawer extends StatelessWidget {
+  final void Function(String section) onNavigate;
+
+  const AppDrawer({super.key, required this.onNavigate});
+
+  @override
+  Widget build(BuildContext context) {
+    final items = ['Home', 'About', 'Skills', 'Projects', 'Courses', 'Contact'];
+
+    return Drawer(
+      child: Container(
+        color: AppTheme.cardBackground,
+        padding: const EdgeInsets.symmetric(vertical: AppConstants.spacingL),
+        child: Column(
+          spacing: AppConstants.spacingXl,
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children:
+                  items.map((item) {
+                    return ListTile(
+                      title: Text(
+                        item,
+                        style: const TextStyle(
+                          color: AppTheme.textPrimary,
+                          fontSize: 16,
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.pop(context);
+                        onNavigate(item.toLowerCase());
+                      },
+                    );
+                  }).toList(),
+            ),
+          //could be removed
+            Container(
+              margin: EdgeInsets.all(AppConstants.spacingXs),
+              width: double.infinity,
+              child: ElevatedButton(
+                
+                onPressed: () => openUrlExternal(heroData['cvUrl']),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: AppTheme.accentYellow, // The background color
+                  // foregroundColor: Colors.white, // The text/icon color
+                ),
+                child: const Text('Download CV'),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

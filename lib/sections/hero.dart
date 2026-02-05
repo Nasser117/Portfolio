@@ -44,10 +44,10 @@ class HeroSection extends StatelessWidget {
     final tablet = isTablet(context);
 
     return holderContainer(
-      horizontalMobilePadding: 24,
-      horizontalDesktopPadding: tablet ? 48 : 80,
-      verticalMobilePadding: 30,
-      verticalDesktopPadding: 10,
+      horizontalMobilePadding: AppConstants.spacingM,
+      horizontalDesktopPadding: tablet ? AppConstants.spacingXl : 80,
+      verticalMobilePadding: AppConstants.spacingL,
+      verticalDesktopPadding: AppConstants.spacingXs,
       mobile: mobile,
       title: '',
       highlight: '',
@@ -76,7 +76,7 @@ class HeroSection extends StatelessWidget {
             backgroundImage: AssetImage(avatar),
           ),
         ),
-        const SizedBox(height: 24),
+        const SizedBox(height: AppConstants.spacingM),
         //name
         Text(
           name,
@@ -87,7 +87,7 @@ class HeroSection extends StatelessWidget {
           ),
           textAlign: TextAlign.center,
         ),
-        const SizedBox(height: 12),
+        const SizedBox(height: AppConstants.spacingS),
         //roles
         Text(
           subtitle,
@@ -98,7 +98,7 @@ class HeroSection extends StatelessWidget {
           ),
           textAlign: TextAlign.center,
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: AppConstants.spacingXs),
         //catchphrase
         Text(
           description,
@@ -109,11 +109,11 @@ class HeroSection extends StatelessWidget {
           ),
           textAlign: TextAlign.center,
         ),
-        const SizedBox(height: 32),
+        const SizedBox(height: AppConstants.spacingL),
         // Buttons
         mobile
             ? Column(
-              spacing: 16,
+              spacing: AppConstants.spacingS,
               children: [
                 SizedBox(width: double.infinity, child: projectsButton()),
                 SizedBox(
@@ -123,24 +123,27 @@ class HeroSection extends StatelessWidget {
               ],
             )
             : Wrap(
-              spacing: 16,
-              runSpacing: 16,
+              spacing: AppConstants.spacingS,
+              runSpacing: AppConstants.spacingS,
               alignment: WrapAlignment.center,
               children: [
                 SizedBox(width: 200, child: projectsButton()),
                 SizedBox(width: 200, child: viewCVButton(context, cvUrl)),
               ],
             ),
-        SizedBox(height: mobile ? 16 : 32),
+        SizedBox(
+          height: mobile ? AppConstants.spacingS : AppConstants.spacingL,
+        ),
         // Social buttons
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          spacing: 16,
+          spacing: AppConstants.spacingS,
           children:
               socials.map<Widget>((social) {
                 return SocialIconButton(
                   icon: social['icon'],
-                  onTap: () => launchExternal(social['url']),
+                  onTap: () => openUrlExternal(social['url']),
+                  // launchExternal(social['url']),
                 );
               }).toList(),
         ),
@@ -188,70 +191,75 @@ Widget viewCVButton(BuildContext context, String cvUrl) {
 
 Widget cvPdfDialog(BuildContext context, String cvUrl) {
   final Uri uri = Uri.parse(cvUrl);
+
   return Dialog(
-    insetPadding: const EdgeInsets.all(16),
-    child: SizedBox(
-      width: 800,
-      height: 600,
-      child: Column(
-        children: [
-          // Header with close button and download button
-          Container(
-            color: AppTheme.primaryCyan,
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  'CV Preview',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
+    insetPadding: const EdgeInsets.all(AppConstants.spacingS),
+    backgroundColor: Colors.transparent, // important
+    child: ClipRRect(
+      borderRadius: BorderRadius.circular(
+        AppConstants.circularL,
+      ), // 👈 real clipping
+      child: SizedBox(
+        width: 800,
+        height: AppConstants.mobileBreakpoint,
+        child: Column(
+          children: [
+            // Header
+            Container(
+              padding: const EdgeInsets.symmetric(
+                horizontal: AppConstants.spacingS,
+                vertical: AppConstants.spacingXs,
+              ),
+              decoration: const BoxDecoration(color: AppTheme.cardBackground),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    'CV Preview',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                    ),
                   ),
-                ),
-                Row(
-                  children: [
-                    // Download button
-                    OutlinedButton.icon(
-                      style: OutlinedButton.styleFrom(
-                        foregroundColor: Colors.white,
-                        side: const BorderSide(color: Colors.white),
+                  Row(
+                    children: [
+                      OutlinedButton.icon(
+                        style: OutlinedButton.styleFrom(
+                          foregroundColor: Colors.white,
+                          side: const BorderSide(color: Colors.white),
+                        ),
+                        icon: const Icon(Icons.download, size: 18),
+                        label: const Text('Download'),
+                        onPressed: () async {
+                          if (await canLaunchUrl(uri)) {
+                            await launchUrl(
+                              uri,
+                              mode: LaunchMode.externalApplication,
+                            );
+                          }
+                        },
                       ),
-                      icon: const Icon(Icons.download, size: 18),
-                      label: const Text('Download'),
-                      onPressed: () async {
-                        if (await canLaunchUrl(uri)) {
-                          await launchUrl(
-                            uri,
-                            // This mode tells Mobile to open in a browser/system viewer
-                            mode: LaunchMode.externalApplication,
-                          );
-                        } else {
-                          // Fallback if the URL can't be opened
-                          debugPrint('Could not launch url');
-                        }
-                      },
-                    ),
-                    const SizedBox(width: 8),
-                    // Close button
-                    IconButton(
-                      icon: const Icon(Icons.close, color: Colors.white),
-                      onPressed: () => Navigator.of(context).pop(),
-                    ),
-                  ],
-                ),
-              ],
+                      const SizedBox(width: AppConstants.spacingXs),
+                      IconButton(
+                        icon: const Icon(Icons.close, color: Colors.white),
+                        onPressed: () => Navigator.of(context).pop(),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
-          ),
-          // PDF Viewer
-          Expanded(
-            child:
-                kIsWeb
-                    ? SfPdfViewer.network(cvUrl)
-                    : SfPdfViewer.asset('assets/files/cv.pdf'),
-          ),
-        ],
+
+            // PDF Viewer
+            Expanded(
+              child:
+                  kIsWeb
+                      ? SfPdfViewer.network(cvUrl)
+                      : SfPdfViewer.asset('assets/files/cv.pdf'),
+            ),
+          ],
+        ),
       ),
     ),
   );

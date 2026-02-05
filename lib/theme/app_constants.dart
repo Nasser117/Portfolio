@@ -15,6 +15,10 @@ class AppConstants {
   static const double spacingXl = 48.0;
   static const double spacingXxl = 64.0;
 
+  static const double circularS = 10;
+  static const double circularM = 12;
+  static const double circularL = 16;
+
   // Max widths
   static const double maxContentWidth = 1200.0;
   static const double maxSectionWidth = 1400.0;

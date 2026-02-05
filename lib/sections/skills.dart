@@ -42,11 +42,11 @@ class SkillsSection extends StatelessWidget {
     final mobile = isMobile(context);
 
     return holderContainer(
-      horizontalMobilePadding: 24,
-      horizontalDesktopPadding: 32,
+      horizontalMobilePadding: AppConstants.spacingM,
+      horizontalDesktopPadding: AppConstants.spacingL,
       verticalMobilePadding: 80,
-      verticalDesktopPadding: 60,
-      sizedBox01Height: 60,
+      verticalDesktopPadding: AppConstants.spacingXxl,
+      sizedBox01Height: AppConstants.spacingXxl,
       mobile: mobile,
       title: 'Skills',
       highlight: '& Tools',
@@ -95,8 +95,8 @@ class SkillsSection extends StatelessWidget {
       itemCount: skillCards.length,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: crossAxisCount,
-        mainAxisSpacing: 32,
-        crossAxisSpacing: 32,
+        mainAxisSpacing: AppConstants.spacingL,
+        crossAxisSpacing: AppConstants.spacingL,
         mainAxisExtent: mainAxisExtent,
       ),
       itemBuilder: (context, index) => skillCards[index],
@@ -110,10 +110,10 @@ class SkillsSection extends StatelessWidget {
     required bool isMobile,
   }) {
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(AppConstants.circularL),
       decoration: BoxDecoration(
         color: AppTheme.cardBackground,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(AppConstants.circularM),
         border: Border.all(color: AppTheme.cardBackground, width: 1),
       ),
       child: Column(
@@ -123,7 +123,7 @@ class SkillsSection extends StatelessWidget {
               ? Row(
                 children: [
                   Icon(icon, color: AppTheme.primaryCyan, size: 24),
-                  const SizedBox(width: 16),
+                  const SizedBox(width: AppConstants.spacingS),
                   Text(
                     title,
                     style: const TextStyle(
@@ -138,10 +138,10 @@ class SkillsSection extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    padding: const EdgeInsets.all(8),
+                    padding: const EdgeInsets.all(AppConstants.spacingXs),
                     decoration: BoxDecoration(
                       color: const Color.fromARGB(255, 3, 46, 80),
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(AppConstants.circularS),
                     ),
                     child: Icon(icon, color: AppTheme.primaryCyan, size: 24),
                   ),
@@ -157,19 +157,19 @@ class SkillsSection extends StatelessWidget {
                 ],
               ),
 
-          const SizedBox(height: 8),
+          const SizedBox(height: AppConstants.spacingXs),
 
           if (isMobile)
             Wrap(
-              spacing: 8,
-              runSpacing: 8,
+              spacing: AppConstants.spacingXs,
+              runSpacing: AppConstants.spacingXs,
               children:
                   skills
                       .map(
                         (skill) => Container(
                           padding: const EdgeInsets.symmetric(
                             horizontal: 10,
-                            vertical: 4,
+                            vertical: AppConstants.spacingXxs,
                           ),
                           decoration: BoxDecoration(
                             color: AppTheme.primaryCyan.withValues(alpha: 0.1),

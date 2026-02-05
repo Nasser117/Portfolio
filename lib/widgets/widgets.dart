@@ -18,6 +18,9 @@ Future<void> openUrlExternal(String url) async {
   }
 }
 
+void navigateTo(context, Widget destination) =>
+    Navigator.push(context, MaterialPageRoute(builder: (context) => destination));
+
 class SocialIconButton extends StatefulWidget {
   final IconData icon;
   final VoidCallback onTap;
@@ -92,10 +95,7 @@ class SectionTitle extends StatelessWidget {
   }
 }
 
-Future<void> launchExternal(String url) async {
-  // final uri = Uri.parse(url);
-  // await launchUrl(uri, mode: LaunchMode.platformDefault);
-}
+
 
 void launchMailWeb() {
   // final mailUrl = 'mailto:alnaser.h@gmail.com?subject=Portfolio Contact';
@@ -276,8 +276,4 @@ Widget holderContainer({
   );
 }
 
-extension ConditionalWrap on Widget {
-  Widget wrapIf(bool condition, Widget Function(Widget child) builder) {
-    return condition ? builder(this) : this;
-  }
-}
+

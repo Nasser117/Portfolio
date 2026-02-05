@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:portfolio_v_1_0/sections/hero.dart';
 import '../theme/app_constants.dart';
 import '../theme/app_theme.dart';
 import 'dart:convert';
@@ -8,6 +9,9 @@ import 'package:http/http.dart' as http;
 
 import '../widgets/widgets.dart';
 
+// =======================
+// NO DATA NEEDED HERE
+// =======================
 class ContactSection extends StatelessWidget {
   const ContactSection({super.key});
 
@@ -17,15 +21,15 @@ class ContactSection extends StatelessWidget {
 
     return holderContainer(
       mobile: mobile,
-      horizontalMobilePadding: 24,
+      horizontalMobilePadding: AppConstants.spacingS,
       horizontalDesktopPadding: 80,
       verticalMobilePadding: 40,
-      verticalDesktopPadding: 60,
+      verticalDesktopPadding: AppConstants.spacingXxl,
       title: 'Let\'s Work',
       highlight: 'Together',
-      sizedBox01Height: 16,
+      sizedBox01Height: AppConstants.spacingS,
       catchphrase: 'Have a project in mind? Let\'s bring your ideas to life.',
-      sizedBox02Height: 60,
+      sizedBox02Height: AppConstants.spacingXxl,
       //remove const if breaks
       body: const WorkForm(),
     );
@@ -54,7 +58,7 @@ Widget _buildTextField({
           color: AppTheme.textPrimary,
         ),
       ),
-      const SizedBox(height: 8),
+      const SizedBox(height: AppConstants.spacingXs),
       TextFormField(
         buildCounter:
             (
@@ -66,9 +70,7 @@ Widget _buildTextField({
 
         maxLength: maxLength, // name
         textInputAction: textInputAction,
-
         enabled: enabled,
-
         controller: controller,
         keyboardType: keyboardType,
         maxLines: maxLines,
@@ -81,10 +83,10 @@ Widget _buildTextField({
           filled: true,
           fillColor: AppTheme.cardBackground,
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(AppConstants.circularS),
             borderSide: BorderSide.none,
           ),
-          contentPadding: const EdgeInsets.all(16),
+          contentPadding: const EdgeInsets.all(AppConstants.spacingS),
         ),
         validator:
             validator ??
@@ -102,38 +104,50 @@ Widget _buildTextField({
 Widget buildContactRow(BuildContext context, {required bool isMobile}) {
   // Define the common social buttons to avoid repetition
   Widget linkedinBtn = IconButton(
-    onPressed: () => {},
-    icon: Image.asset("assets/icons/linkedin.png", width: 24, height: 24),
+    onPressed: () => openUrlExternal(heroData['socials'][0]['url']),
+    icon: Image.asset(
+      "assets/icons/linkedin.png",
+      width: AppConstants.spacingM,
+      height: AppConstants.spacingM,
+    ),
     padding: EdgeInsets.zero,
     constraints: const BoxConstraints(),
   );
 
   Widget githubBtn = IconButton(
-    onPressed: () => {},
+    onPressed: () => openUrlExternal(heroData['socials'][2]['url']),
     icon: const Icon(FontAwesomeIcons.github, color: Colors.white),
     padding: EdgeInsets.zero,
     constraints: const BoxConstraints(),
   );
 
-  Widget gmailSection = Row(
-    mainAxisSize: MainAxisSize.min,
-    children: [
-      IconButton(
-        onPressed: () {},
-        icon: Image.asset("assets/icons/gmail.png", width: 24, height: 24),
-        padding: EdgeInsets.zero,
-        constraints: const BoxConstraints(),
-      ),
-      const SizedBox(width: 8),
-      Text(
-        'alnaser.h@gmail.com',
-        style: TextStyle(
-          fontSize: isMobile ? 16 : 18,
-          color: AppTheme.primaryCyan,
-          fontWeight: FontWeight.w600,
+  Widget gmailSection = InkWell(
+    onTap: () => openUrlExternal(heroData['socials'][1]['url']),
+    child: Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        IconButton(
+          onPressed: () => {},
+
+          icon: Image.asset(
+            "assets/icons/gmail.png",
+            width: AppConstants.spacingM,
+            height: AppConstants.spacingM,
+          ),
+          padding: EdgeInsets.zero,
+          constraints: const BoxConstraints(),
         ),
-      ),
-    ],
+        const SizedBox(width: AppConstants.spacingXs),
+        Text(
+          'alnaser.h@gmail.com',
+          style: TextStyle(
+            fontSize: isMobile ? 16 : 18,
+            color: AppTheme.primaryCyan,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+      ],
+    ),
   );
 
   // If Mobile: Stack them in a Column
@@ -141,10 +155,10 @@ Widget buildContactRow(BuildContext context, {required bool isMobile}) {
     return Column(
       children: [
         gmailSection,
-        const SizedBox(height: 16),
+        const SizedBox(height: AppConstants.spacingS),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          spacing: 32, // XL spacing
+          spacing: AppConstants.spacingL, // XL spacing
           children: [linkedinBtn, githubBtn],
         ),
       ],
@@ -267,6 +281,7 @@ class _WorkFormState extends State<WorkForm> {
         Form(
           key: _formKey,
           child: Column(
+            spacing: AppConstants.spacingM,
             children: [
               _buildTextField(
                 controller: _nameController,
@@ -276,7 +291,7 @@ class _WorkFormState extends State<WorkForm> {
                 maxLength: 100,
                 textInputAction: TextInputAction.next,
               ),
-              const SizedBox(height: 24),
+              //
               _buildTextField(
                 controller: _emailController,
                 label: 'Email',
@@ -297,7 +312,7 @@ class _WorkFormState extends State<WorkForm> {
                   return null;
                 },
               ),
-              const SizedBox(height: 24),
+              //
               _buildTextField(
                 controller: _messageController,
                 label: 'Message',
@@ -307,7 +322,7 @@ class _WorkFormState extends State<WorkForm> {
                 maxLength: 1000,
                 textInputAction: TextInputAction.newline,
               ),
-              const SizedBox(height: 32),
+              //
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
@@ -318,7 +333,7 @@ class _WorkFormState extends State<WorkForm> {
             ],
           ),
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: AppConstants.spacingS),
         buildContactRow(context, isMobile: mobile),
       ],
     );

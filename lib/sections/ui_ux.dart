@@ -21,7 +21,7 @@ List<Map<String, dynamic>> _uxData() {
       ],
       'learnings':
           'Understanding the balance between aesthetic appeal and functional clarity. User testing revealed that subtle animations improved perceived app responsiveness without compromising usability.',
-      'figma_url': 'https://www.figma.com/file/xxxxx',
+      'figma_url': 'https://www.figma.com/design/8LaPU3d3tJNg1WUh1CbGAF/fix-me?node-id=0-1&t=SSfzsssk0S1r0lIU-1',
       'images': [
         'assets/images/me.png',
         'assets/images/solar.png',
@@ -44,7 +44,7 @@ List<Map<String, dynamic>> _uxData() {
 //       'figma_url': null,
 //       'images': ['assets/images/jobly.png', 'assets/images/library.png'],
 //     },
-//   //  
+// //   //  
 //     {
 //       'title': 'Fix Me',
 //       'design_goal':
@@ -64,7 +64,7 @@ List<Map<String, dynamic>> _uxData() {
 //         'assets/images/library.png',
 //       ],
 //     },
-//   //  
+// //   //  
 //     {
 //       'title': 'Jobly UX',
 //       'design_goal':
@@ -80,7 +80,7 @@ List<Map<String, dynamic>> _uxData() {
 //       'figma_url': null,
 //       'images': ['assets/images/jobly.png', 'assets/images/library.png'],
 //     },
-// //  
+// // //  
   ];
 }
 
@@ -93,34 +93,34 @@ class UIUXSection extends StatelessWidget {
 
     return holderContainer(
       mobile: mobile,
-      horizontalMobilePadding: 24,
-      horizontalDesktopPadding: 32,
+      horizontalMobilePadding: AppConstants.spacingM,
+      horizontalDesktopPadding: AppConstants.spacingS,
       verticalMobilePadding: 80,
-      verticalDesktopPadding: 60,
+      verticalDesktopPadding: AppConstants.spacingXxl,
       title: 'UI/UX',
       highlight: 'Design Work',
-      sizedBox01Height: 16,
+      sizedBox01Height: AppConstants.spacingS,
       catchphrase: 'Exploring user-centered design principles',
-      sizedBox02Height: 50,
+      sizedBox02Height: AppConstants.spacingXl,
       body: _uxLayout(context),
     );
   }
 
   Widget _uxLayout(BuildContext context) {
     final projects = _uxData();
-    const double maxLayoutWidth = 1200;
-    const double spacing = 24;
+    const double maxLayoutWidth = AppConstants.desktopBreakpoint;
+    const double spacing = AppConstants.spacingM;
 
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24),
+        padding: const EdgeInsets.symmetric(horizontal: AppConstants.spacingXs),
         child: Center(
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: maxLayoutWidth),
             child: LayoutBuilder(
               builder: (context, constraints) {
                 final width = constraints.maxWidth;
-                final bool twoColumns = width >= 800;
+                final bool twoColumns = width >= 750;
 
                 final double cardWidth =
                     twoColumns
@@ -163,7 +163,7 @@ class UIUXSection extends StatelessWidget {
 
     return Center(
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(AppConstants.circularL),
         child: Column(
           children: [
             // IMAGE
@@ -179,12 +179,12 @@ class UIUXSection extends StatelessWidget {
                 color: AppTheme.cardBackground,
 
                 borderRadius: BorderRadius.only(
-                  bottomRight: Radius.circular(16),
-                  bottomLeft: Radius.circular(16),
+                  bottomRight: Radius.circular(AppConstants.circularL),
+                  bottomLeft: Radius.circular(AppConstants.circularL),
                 ),
               ),
               width: double.infinity,
-              padding: EdgeInsets.all(mobile ? 16 : 32),
+              padding: EdgeInsets.all(mobile ? AppConstants.spacingS : AppConstants.spacingL),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -198,7 +198,7 @@ class UIUXSection extends StatelessWidget {
                     ),
                   ),
 
-                  if (!mobile) const SizedBox(height: 16),
+                  if (!mobile) const SizedBox(height: AppConstants.spacingS),
 
                   // DESIGN GOAL
                   _buildSection(
@@ -209,11 +209,11 @@ class UIUXSection extends StatelessWidget {
 
                   // UX DECISIONS
                   Container(
-                    margin: const EdgeInsets.only(top: 16),
+                    margin: const EdgeInsets.only(top: AppConstants.spacingS),
                     padding: const EdgeInsets.all(12),
                     decoration: BoxDecoration(
                       color: AppTheme.darkBackground,
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(AppConstants.circularS),
                     ),
                     child: _buildSection(
                       title: 'Key UX Decisions:',
@@ -227,15 +227,15 @@ class UIUXSection extends StatelessWidget {
 
                   // LEARNINGS
                   Container(
-                    margin: const EdgeInsets.only(top: 16),
-                    padding: const EdgeInsets.all(12),
+                    margin: const EdgeInsets.only(top: AppConstants.spacingS),
+                    padding: const EdgeInsets.all(AppConstants.circularM),
                     decoration: BoxDecoration(
                       color: AppTheme.darkBackground,
                       borderRadius: BorderRadius.only(
-                        topLeft: const Radius.circular(10),
-                        topRight: const Radius.circular(10),
-                        bottomLeft: Radius.circular(mobile ? 0 : 10),
-                        bottomRight: Radius.circular(mobile ? 0 : 10),
+                        topLeft: const Radius.circular(AppConstants.circularS),
+                        topRight: const Radius.circular(AppConstants.circularS),
+                        bottomLeft: Radius.circular(mobile ? 0 : AppConstants.circularS),
+                        bottomRight: Radius.circular(mobile ? 0 : AppConstants.circularS),
                       ),
                     ),
                     child: _buildSection(
@@ -245,7 +245,7 @@ class UIUXSection extends StatelessWidget {
                     ),
                   ),
 
-                  if (!mobile) const SizedBox(height: 16),
+                  if (!mobile) const SizedBox(height: AppConstants.spacingS),
 
                   // ACTIONS
                   mobile
@@ -288,7 +288,7 @@ class UIUXSection extends StatelessWidget {
     return ElevatedButton.icon(
       onPressed:
           isReady
-              ? () => launchExternal(figmaUrl)
+              ? () => openUrlExternal(figmaUrl)
               : () => showDialog(
                 context: context,
                 builder: (_) => _projectImagesGalleryDialog(context, images),
@@ -324,7 +324,7 @@ class UIUXSection extends StatelessWidget {
     required bool mobile,
   }) {
     return Padding(
-      padding: const EdgeInsets.only(top: 16),
+      padding: const EdgeInsets.only(top: AppConstants.spacingS),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -335,7 +335,7 @@ class UIUXSection extends StatelessWidget {
               color: AppTheme.primaryCyan,
             ),
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: AppConstants.spacingXs),
           if (body != null)
             Text(
               body,
@@ -353,7 +353,7 @@ class UIUXSection extends StatelessWidget {
 
   Widget _buildSkillCard({required List<String> skills, required bool mobile}) {
     return Container(
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(12)),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(AppConstants.circularM)),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -396,18 +396,24 @@ class UIUXSection extends StatelessWidget {
   Widget _projectImagesGalleryDialog(context, images) {
     return Dialog(
       backgroundColor: Colors.transparent,
-      child: Stack(
-        children: [
-          ImageGallery(images: images),
-          // Close button
-          Align(
-            alignment: Alignment.topRight,
-            child: IconButton(
-              icon: const Icon(Icons.close, color: Colors.white),
-              onPressed: () => Navigator.pop(context),
-            ),
+      child: Center(
+        
+        child: SizedBox(
+          width: AppConstants.tabletBreakpoint,
+          child: Stack(
+            children: [
+              ImageGallery(images: images),
+              // Close button
+              Align(
+                alignment: Alignment.topRight,
+                child: IconButton(
+                  icon: const Icon(Icons.close, color: Colors.white),
+                  onPressed: () => Navigator.pop(context),
+                ),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
