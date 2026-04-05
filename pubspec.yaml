@@ -32,4 +32,7 @@ flutter:
     - assets/images/
     - assets/icons/
     - assets/files/
+    - assets/tayar/
+    - assets/jobly/
+    - assets/tecno_library/
 

@@ -19,9 +19,16 @@ List<Map<String, dynamic>> _projectsData() {
       'color': const Color.fromARGB(255, 146, 0, 0),
       'image': 'assets/images/library.png',
       'images': [
-        'assets/images/library.png',
-        'assets/images/library.png',
-        'assets/images/library.png',
+        'assets/tecno_library/1.jpg',
+        'assets/tecno_library/2.jpg',
+        'assets/tecno_library/3.jpg',
+        'assets/tecno_library/4.jpg',
+        'assets/tecno_library/5.jpg',
+        'assets/tecno_library/6.jpg',
+        'assets/tecno_library/7.jpg',
+        'assets/tecno_library/8.jpg',
+        'assets/tecno_library/9.jpg',
+        'assets/tecno_library/10.jpg',
       ],
       'githubUrl': 'https://github.com/Nasser117/Techno-Library',
       'demoUrl': null,
@@ -99,9 +106,31 @@ List<Map<String, dynamic>> _projectsData() {
       'color': AppTheme.accentPurple,
       'image': 'assets/images/jobly.png',
       'images': [
-        'assets/images/jobly.png',
-        'assets/images/jobly.png',
-        'assets/images/jobly.png',
+        'assets/jobly/1.png',
+        'assets/jobly/2.png',
+        'assets/jobly/3.png',
+        'assets/jobly/4.png',
+        'assets/jobly/5.png',
+        'assets/jobly/6.png',
+        'assets/jobly/7.png',
+        'assets/jobly/8.png',
+        'assets/jobly/9.png',
+        'assets/jobly/10.png',
+        'assets/jobly/11.png',
+        'assets/jobly/12.png',
+        'assets/jobly/13.png',
+        'assets/jobly/14.png',
+        'assets/jobly/15.png',
+        'assets/jobly/16.png',
+        'assets/jobly/17.png',
+        'assets/jobly/18.png',
+        'assets/jobly/19.jpg',
+        'assets/jobly/20.jpg',
+        'assets/jobly/21.jpg',
+        'assets/jobly/22.jpg',
+        'assets/jobly/23.jpg',
+        'assets/jobly/24.jpg',
+        'assets/jobly/25.jpg',
       ],
       'githubUrl': 'https://github.com/Nasser117/Jobly',
       'demoUrl': null,
@@ -143,9 +172,25 @@ List<Map<String, dynamic>> _projectsData() {
       'color': const Color.from(alpha: 1, red: 0, green: 1, blue: 0.898),
       'image': 'assets/images/solar.png',
       'images': [
-        'assets/images/solar.png',
-        'assets/images/solar.png',
-        'assets/images/solar.png',
+        'assets/tayar/user/1.jpg',
+        'assets/tayar/user/2.jpg',
+        'assets/tayar/user/3.jpg',
+        'assets/tayar/user/4.jpg',
+        'assets/tayar/user/5.jpg',
+        'assets/tayar/user/6.jpg',
+        'assets/tayar/user/7.jpg',
+        'assets/tayar/user/8.jpg',
+        'assets/tayar/user/9.jpg',
+        'assets/tayar/user/10.jpg',
+        'assets/tayar/user/11.jpg',
+        'assets/tayar/user/12.jpg',
+        'assets/tayar/user/13.jpg',
+        'assets/tayar/user/14.jpg',
+        'assets/tayar/worker/15.jpg',
+        'assets/tayar/worker/16.jpg',
+        'assets/tayar/worker/17.jpg',
+        'assets/tayar/worker/18.jpg',
+        'assets/tayar/worker/19.jpg',  
       ],
       'githubUrl': 'https://github.com/Nasser117/Tayar-user',
       'demoUrl': null,
@@ -180,184 +225,6 @@ List<Map<String, dynamic>> _projectsData() {
     },
   ];
 }
-// List<Map<String, dynamic>> _projectsData() {
-//   return [
-//     {
-//       'title': 'Tecno Library',
-//       'catchphrase': 'Your books. Organized. Everywhere.',
-//       'description': 'A comprehensive digital library platform...',
-//       'role': 'UI/UX Design, Mobile Developer',
-//       'color': const Color.fromARGB(255, 146, 0, 0),
-//       'image': 'assets/images/library.png',
-//       'images': [
-//         'assets/images/library.png',
-//         'assets/images/library.png',
-//         'assets/images/library.png',
-//       ],
-//       'githubUrl': 'https://github.com/Nasser117/Techno-Library',
-//       'demoUrl': null,
-//       'techStack': ['Flutter', 'Firebase', 'REST API'],
-
-//       // 👇 NEW STRUCTURED CONTENT
-//       'problem': [
-//         'Scattered physical books',
-//         'No centralized catalog',
-//         'Difficult search and tracking',
-//       ],
-//       'solution':
-//           'Build a digital library that allows users to catalog, search, and manage books efficiently.',
-//       'challenges': [
-//         'State management',
-//         'Data synchronization',
-//         'Search optimization',
-//       ],
-//       'learnings': [
-//         'REST API integration',
-//         'Firebase data modeling',
-//         'Scalable UI design',
-//       ],
-//       'keyFeatures': ['Book cataloging', 'Advanced search', 'Cloud sync'],
-//       'technicalDecisions': [
-//         'Flutter for cross-platform',
-//         'Firebase for backend',
-//         'Clean architecture',
-//       ],
-//     },
-
-//     {
-//       'title': 'Fix Me',
-//       'catchphrase': 'Turn habits into progress.',
-//       'description': 'Personal productivity and habit tracking app.',
-//       'role': 'UI/UX Design, Mobile Developer',
-//       'color': const Color.fromARGB(255, 255, 139, 7),
-//       'image': 'assets/images/fixme.png',
-//       'images': [
-//         'assets/images/fixme.png',
-//         'assets/images/fixme.png',
-//         'assets/images/fixme.png',
-//       ],
-//       'githubUrl': null,
-//       'demoUrl': null,
-//       'techStack': ['Flutter', 'BLoC', 'Hive'],
-
-//       'problem': [
-//         'No progress tracking',
-//         'No visual motivation',
-//         'Lack of structure',
-//       ],
-//       'solution':
-//           'Create a habit-based productivity app with visual analytics and streak tracking.',
-//       'challenges': ['State management', 'Local persistence', 'UX clarity'],
-//       'learnings': [
-//         'BLoC architecture',
-//         'UX-driven planning',
-//         'Scalable structure',
-//       ],
-//       'keyFeatures': [
-//         'Monthly progress tracking',
-//         'Visual analytics',
-//         'Habit streak system',
-//       ],
-//       'technicalDecisions': [
-//         'Hive for local storage',
-//         'BLoC for scalability',
-//         'Modular UI design',
-//       ],
-//     },
-
-//     {
-//       'title': 'Jobly',
-//       'catchphrase': 'Connecting talent with opportunity.',
-//       'description':
-//           'A streamlined job search platform designed to bridge the gap between recruiters and job seekers with a focus on speed and local relevance.',
-//       'role': 'UI/UX Design, Mobile Developer',
-//       'color': AppTheme.accentPurple,
-//       'image': 'assets/images/jobly.png',
-//       'images': [
-//         'assets/images/jobly.png',
-//         'assets/images/jobly.png',
-//         'assets/images/jobly.png',
-//       ],
-//       'githubUrl': 'https://github.com/Nasser117/Jobly',
-//       'demoUrl': null,
-//       'techStack': ['Flutter', 'BLoC', 'SQLite'],
-
-//       'problem': [
-//         'Fragmented job listings',
-//         'Difficult application tracking',
-//         'Poor offline accessibility',
-//       ],
-//       'solution':
-//           'Develop a robust mobile application with local caching for seamless browsing and an intuitive application management system.',
-//       'challenges': [
-//         'Complex relational data modeling',
-//         'Handling asynchronous job feeds',
-//         'Maintaining app performance with large datasets',
-//       ],
-//       'learnings': [
-//         'Advanced BLoC state management',
-//         'SQLite database optimization',
-//         'User-centric job filtering logic',
-//       ],
-//       'keyFeatures': [
-//         'Offline job saving',
-//         'Advanced category filtering',
-//         'Application status tracker',
-//       ],
-//       'technicalDecisions': [
-//         'SQLite for persistent offline access',
-//         'BLoC for predictable state transitions',
-//         'Modular repository pattern',
-//       ],
-//     },
-
-//     {
-//       'title': 'Tayar Shop',
-//       'catchphrase': 'E-commerce, simplified.',
-//       'description':
-//           'A modern e-commerce platform offering a smooth shopping experience with integrated payment gateways and real-time order tracking.',
-//       'role': 'UI/UX Design, Mobile Developer',
-//       'color': const Color.from(alpha: 1, red: 0, green: 1, blue: 0.898),
-//       'image': 'assets/images/solar.png',
-//       'images': [
-//         'assets/images/solar.png',
-//         'assets/images/solar.png',
-//         'assets/images/solar.png',
-//       ],
-//       'githubUrl': 'https://github.com/Nasser117/Tayar-user',
-//       'demoUrl': null,
-//       'techStack': ['Flutter', 'Stripe', 'Node.js'],
-
-//       'problem': [
-//         'High friction in checkout processes',
-//         'Lack of secure payment options',
-//         'Inconsistent product management',
-//       ],
-//       'solution':
-//           'Create a secure, fast-loading retail app with integrated Stripe payments and a custom Node.js backend.',
-//       'challenges': [
-//         'Payment gateway integration',
-//         'Handling real-time stock updates',
-//         'Secure user authentication',
-//       ],
-//       'learnings': [
-//         'Financial transaction security',
-//         'Backend-to-frontend communication',
-//         'Scalable product cataloging',
-//       ],
-//       'keyFeatures': [
-//         'Secure Stripe checkout',
-//         'Product wishlists',
-//         'Real-time order updates',
-//       ],
-//       'technicalDecisions': [
-//         'Node.js for a custom, scalable backend',
-//         'Stripe API for PCI-compliant payments',
-//         'Provider or BLoC for cart management',
-//       ],
-//     },
-//   ];
-// }
 
 class ProjectsSection extends StatelessWidget {
   const ProjectsSection({super.key});
@@ -419,41 +286,6 @@ class ProjectsSection extends StatelessWidget {
           }).toList(),
     );
   }
-  //grid
-  // Widget _projectsDesktop(BuildContext context) {
-  //   final projects = _projectsData();
-  //   final screenWidth = MediaQuery.of(context).size.width;
-  //   double spacing = AppConstants.spacingL;
-
-  //   int crossAxisCount;
-
-  //   if (screenWidth < 700) {
-  //     crossAxisCount = 1;
-  //   } else if (screenWidth < AppConstants.desktopBreakpoint) {
-  //     crossAxisCount = 2;
-  //   } else if (screenWidth < 1400) {
-  //     crossAxisCount = 2;
-  //   } else {
-  //     crossAxisCount = 3;
-  //   }
-
-  //   return GridView.builder(
-  //     shrinkWrap: true,
-  //     physics: const NeverScrollableScrollPhysics(),
-  //     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-  //       crossAxisCount: crossAxisCount,
-  //       mainAxisSpacing: spacing,
-  //       crossAxisSpacing: spacing,
-  //       mainAxisExtent: screenWidth < 700 ? 460 : 500, // keeps height stable
-  //     ),
-
-  //     itemCount: projects.length,
-  //     itemBuilder: (context, index) {
-  //       final project = projects[index];
-  //       return ProjectCard(project: project);
-  //     },
-  //   );
-  // }
 }
 
 class ProjectCard extends StatefulWidget {
@@ -475,10 +307,10 @@ class _ProjectCardState extends State<ProjectCard> {
     final String title = p['title'];
     final String catchphrase = p['catchphrase'];
     final String description = p['description'];
-    final String role = p['role'];
+    // final String role = p['role'];
     final Color accentColor = p['color'];
     final String image = p['image'];
-    final List<String> images = List<String>.from(p['images']);
+    // final List<String> images = List<String>.from(p['images']);
     final List<String> techStack = List<String>.from(p['techStack']);
     final String? githubUrl = p['githubUrl'];
     // final String? demoUrl = p['demoUrl'];
@@ -647,14 +479,7 @@ class _ProjectCardState extends State<ProjectCard> {
                                         )
                                         : navigateTo(
                                           context,
-                                          ProjectDetailsPage(
-                                            role: role,
-                                            title: title,
-                                            subtitle: description,
-                                            image: image,
-                                            images: images,
-                                            techStack: techStack,
-                                          ),
+                                          ProjectDetailsPage(project: p),
                                         );
                                   },
                                 ),
@@ -813,13 +638,6 @@ class ProjectDetailsDialog extends StatelessWidget {
 
   const ProjectDetailsDialog({super.key, required this.project});
 
-  // int _getColumnCount(double width) {
-  //   if (width >= 900) return 4; // extra-wide screens
-  //   if (width >= 600) return 3; // large screens
-  //   if (width >= 300) return 2; // medium screens
-  //   return 1; // small screens
-  // }
-
   @override
   Widget build(BuildContext context) {
     final p = project;
@@ -914,36 +732,6 @@ class ProjectDetailsDialog extends StatelessWidget {
   }) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        // int getColumnCount(double width) {
-        //   if (width >= 900) return 4; // extra-wide screens
-        //   if (width >= 600) return 3; // large screens
-        //   if (width >= 300) return 2; // medium screens
-        //   return 1; // small screens
-        // }
-
-        // final columns = getColumnCount(constraints.maxWidth);
-        final columns = getResponsiveColumnCount(constraints.maxWidth);
-
-        final double childAspectRatio;
-        final double? mainAxisExtent;
-        switch (columns) {
-          case 4:
-            childAspectRatio = 1.2;
-            mainAxisExtent = 191;
-            break;
-          case 3:
-            childAspectRatio = 1.25;
-            mainAxisExtent = 211;
-            break;
-          case 2:
-            childAspectRatio = 1.1;
-            mainAxisExtent = 211;
-            break;
-          default:
-            childAspectRatio = 1.0;
-            mainAxisExtent = null;
-        }
-
         return CustomScrollView(
           slivers: [
             // Tech stack
@@ -965,7 +753,7 @@ class ProjectDetailsDialog extends StatelessWidget {
                 ],
               ),
             ),
-           //cards
+            //cards
             SliverToBoxAdapter(
               child: LayoutBuilder(
                 builder: (context, constraints) {
@@ -1039,95 +827,6 @@ class ProjectDetailsDialog extends StatelessWidget {
               ),
             ),
 
-            // wrap
-            //             SliverToBoxAdapter(
-            //   child: LayoutBuilder(
-            //     builder: (context, innerConstraints) {
-            //       final columns = getResponsiveColumnCount(innerConstraints.maxWidth);
-
-            //       const double spacing = 24;
-            //       final double totalSpacing = spacing * (columns - 1);
-            //       final double cardWidth =
-            //           (innerConstraints.maxWidth - totalSpacing) / columns;
-
-            //       return Wrap(
-            //         spacing: spacing,
-            //         runSpacing: spacing,
-            //         children: [
-            //           _infoCard(
-            //             icon: Icons.warning_amber_rounded,
-            //             color: Colors.yellowAccent,
-            //             title: 'Problem',
-            //             items: problem,
-            //           ),
-            //           _infoCard(
-            //             icon: Icons.lightbulb_outline,
-            //             color: Colors.yellowAccent,
-            //             title: 'Solution',
-            //             description: solution,
-            //           ),
-            //           _infoCard(
-            //             icon: Icons.error_outline,
-            //             color: Colors.red,
-            //             title: 'Challenges',
-            //             items: challenges,
-            //           ),
-            //           _infoCard(
-            //             icon: Icons.psychology_outlined,
-            //             color: Colors.green,
-            //             title: 'Learnings',
-            //             items: learnings,
-            //           ),
-            //         ].map(
-            //           (card) => SizedBox(
-            //             width: cardWidth,
-            //             child: card,
-            //           ),
-            //         ).toList(),
-            //       );
-            //     },
-            //   ),
-            // ),
-            //grid
-            // SliverGrid(
-            //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            //     crossAxisCount: columns,
-            //     crossAxisSpacing: 24,
-            //     mainAxisSpacing: 24,
-            //     childAspectRatio: childAspectRatio,
-            //     mainAxisExtent: mainAxisExtent,
-            //   ),
-            //   delegate: SliverChildListDelegate([
-            //     _infoCard(
-            //       icon: Icons.warning_amber_rounded,
-            //       color: Colors.yellowAccent,
-            //       title: 'Problem',
-            //       items: problem,
-            //     ),
-            //     _infoCard(
-            //       icon: Icons.lightbulb_outline,
-            //       color: Colors.yellowAccent,
-
-            //       title: 'Solution',
-            //       description: solution,
-            //     ),
-            //     _infoCard(
-            //       icon: Icons.error_outline,
-            //       color: Colors.red,
-
-            //       title: 'Challenges',
-            //       items: challenges,
-            //     ),
-            //     _infoCard(
-            //       icon: Icons.psychology_outlined,
-            //       color: Colors.green,
-
-            //       title: 'Learnings',
-            //       items: learnings,
-            //     ),
-            //   ]),
-            // ),
-
             // Full-width cards
             SliverToBoxAdapter(
               child: Column(
@@ -1190,134 +889,6 @@ Widget _header({
     ],
   );
 }
-
-// // ---------------- BODY ----------------
-// Widget _bodyMobile({
-//   required List<String> techStack,
-//   required String role,
-//   required List<String> problem,
-//   required String solution,
-//   required List<String> challenges,
-//   required List<String> learnings,
-//   required List<String> keyFeatures,
-//   required List<String> technicalDecisions,
-//   required List<String> images,
-// }) {
-//   return LayoutBuilder(
-//     builder: (context, constraints) {
-//       // int getColumnCount(double width) {
-//       //   if (width >= 900) return 4; // extra-wide screens
-//       //   if (width >= 600) return 3; // large screens
-//       //   if (width >= 300) return 2; // medium screens
-//       //   return 1; // small screens
-//       // }
-
-//       // final columns = getColumnCount(constraints.maxWidth);
-//       final columns = getResponsiveColumnCount(constraints.maxWidth);
-
-//       final double childAspectRatio;
-//       final double? mainAxisExtent;
-//       switch (columns) {
-//         case 4:
-//           childAspectRatio = 1.2;
-//           mainAxisExtent = 191;
-//           break;
-//         case 3:
-//           childAspectRatio = 1.25;
-//           mainAxisExtent = 211;
-//           break;
-//         case 2:
-//           childAspectRatio = 1.1;
-//           mainAxisExtent = 211;
-//           break;
-//         default:
-//           childAspectRatio = 1.0;
-//           mainAxisExtent = null;
-//       }
-
-//       return CustomScrollView(
-//         slivers: [
-//           // Tech stack
-//           SliverToBoxAdapter(
-//             child: Column(
-//               crossAxisAlignment: CrossAxisAlignment.start,
-//               children: [
-//                 _columnLabel('Tech Stack'),
-
-//                 const SizedBox(height: AppConstants.spacingXs),
-//                 _techStackInline(techStack),
-
-//                 const SizedBox(height: AppConstants.spacingS),
-//                 _columnLabel('My Role'),
-//                 const SizedBox(height: AppConstants.spacingXs),
-//                 _roleInline(role),
-
-//                 const SizedBox(height: AppConstants.spacingM),
-//               ],
-//             ),
-//           ),
-
-//           // Grid
-//           SliverGrid(
-//             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-//               crossAxisCount: columns,
-//               crossAxisSpacing: 24,
-//               mainAxisSpacing: 24,
-//               childAspectRatio: childAspectRatio,
-//               mainAxisExtent: mainAxisExtent,
-//             ),
-//             delegate: SliverChildListDelegate([
-//               _infoCard(
-//                 icon: Icons.warning_amber_rounded,
-//                 color: Colors.yellowAccent,
-//                 title: 'Problem',
-//                 items: problem,
-//               ),
-//               _infoCard(
-//                 icon: Icons.lightbulb_outline,
-//                 color: Colors.yellowAccent,
-
-//                 title: 'Solution',
-//                 description: solution,
-//               ),
-//               _infoCard(
-//                 icon: Icons.error_outline,
-//                 color: Colors.red,
-
-//                 title: 'Challenges',
-//                 items: challenges,
-//               ),
-//               _infoCard(
-//                 icon: Icons.psychology_outlined,
-//                 color: Colors.green,
-
-//                 title: 'Learnings',
-//                 items: learnings,
-//               ),
-//             ]),
-//           ),
-
-//           // Full-width cards
-//           SliverToBoxAdapter(
-//             child: Column(
-//               children: [
-//                 const SizedBox(height: AppConstants.spacingM),
-//                 _fullWidthCard(title: 'Key Features', items: keyFeatures),
-//                 const SizedBox(height: 12),
-//                 _fullWidthCard(
-//                   title: 'Technical Decisions',
-//                   items: technicalDecisions,
-//                 ),
-//                 const SizedBox(height: 12),
-//                 ImageGallery(images: images),
-//               ],
-//             ),
-//           ),
-//         ],
-//       );
-//     },
-//   );
-// }
 
 //
 Widget _techStackInline(List<String> techStack) {
@@ -1415,6 +986,7 @@ Widget _infoCard({
             (e) => Padding(
               padding: const EdgeInsets.only(top: 6),
               child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
                     '• ',
@@ -1457,33 +1029,28 @@ Widget _primaryButton({
 }
 
 class ProjectDetailsPage extends StatelessWidget {
-  final String role; // 👈 ADD
-  final String? url;
+  final Map<String, dynamic> project;
 
-  final String title;
-  final String subtitle;
-  final String image;
-  final List<String> images;
-  final List<String> techStack;
-  const ProjectDetailsPage({
-    super.key,
-    required this.role,
-    this.url,
-    required this.title,
-    required this.subtitle,
-    required this.image,
-    required this.images,
-    required this.techStack,
-  });
-  // int _getColumnCount(double width) {
-  //   if (width >= 900) return 4; // extra-wide screens
-  //   if (width >= 600) return 3; // large screens
-  //   if (width >= 300) return 2; // medium screens
-  //   return 1; // small screens
-  // }
+  const ProjectDetailsPage({super.key, required this.project});
 
   @override
   Widget build(BuildContext context) {
+    final String title = project['title'];
+    final String subtitle = project['catchphrase'];
+    final String image = project['image'];
+    final String role = project['role'];
+    final String? url = project['githubUrl'];
+    final List<String> images = List<String>.from(project['images']);
+    final List<String> techStack = List<String>.from(project['techStack']);
+    final List<String> problem = List<String>.from(project['problem']);
+    final String solution = project['solution'];
+    final List<String> challenges = List<String>.from(project['challenges']);
+    final List<String> learnings = List<String>.from(project['learnings']);
+    final List<String> keyFeatures = List<String>.from(project['keyFeatures']);
+    final List<String> technicalDecisions = List<String>.from(
+      project['technicalDecisions'],
+    );
+
     return Scaffold(
       appBar: AppBar(backgroundColor: AppTheme.darkBackground),
       body: Padding(
@@ -1493,10 +1060,8 @@ class ProjectDetailsPage extends StatelessWidget {
             children: [
               _header(title: title, subtitle: subtitle, image: image, url: url),
               const SizedBox(height: 32),
-              // Expanded(child: _body()),
               LayoutBuilder(
                 builder: (context, constraints) {
-                  // final columns = _getColumnCount(constraints.maxWidth);
                   final columns = getResponsiveColumnCount(
                     constraints.maxWidth,
                   );
@@ -1523,11 +1088,9 @@ class ProjectDetailsPage extends StatelessWidget {
 
                   return CustomScrollView(
                     shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
-
-                    // physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     slivers: [
-                      // Tech stack
+                      // Tech Stack & Role
                       SliverToBoxAdapter(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -1535,18 +1098,16 @@ class ProjectDetailsPage extends StatelessWidget {
                             _columnLabel('Tech Stack'),
                             const SizedBox(height: 8),
                             _techStackInline(techStack),
-
                             const SizedBox(height: 16),
                             _columnLabel('My Role'),
                             const SizedBox(height: 8),
                             _roleInline(role),
-
                             const SizedBox(height: 24),
                           ],
                         ),
                       ),
 
-                      // Grid
+                      // Grid: Problem, Solution, Challenges, Learnings
                       SliverGrid(
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: columns,
@@ -1560,41 +1121,25 @@ class ProjectDetailsPage extends StatelessWidget {
                             icon: Icons.warning_amber_rounded,
                             color: Colors.yellowAccent,
                             title: 'Problem',
-                            items: [
-                              'No track of progress',
-                              'No visualization',
-                              'Need for order',
-                            ],
+                            items: problem,
                           ),
                           _infoCard(
                             icon: Icons.lightbulb_outline,
                             color: Colors.yellowAccent,
-
                             title: 'Solution',
-                            description:
-                                'Build a comprehensive app to visualize the progress made and compare between months.',
+                            description: solution,
                           ),
                           _infoCard(
                             icon: Icons.error_outline,
                             color: Colors.red,
-
                             title: 'Challenges',
-                            items: [
-                              'State management',
-                              'Data persistence',
-                              'UX clarity',
-                            ],
+                            items: challenges,
                           ),
                           _infoCard(
                             icon: Icons.psychology_outlined,
                             color: Colors.green,
-
                             title: 'Learnings',
-                            items: [
-                              'BLoC architecture',
-                              'UX-driven planning',
-                              'Scalable structure',
-                            ],
+                            items: learnings,
                           ),
                         ]),
                       ),
@@ -1606,22 +1151,12 @@ class ProjectDetailsPage extends StatelessWidget {
                             const SizedBox(height: 24),
                             _fullWidthCard(
                               title: 'Key Features',
-                              items: [
-                                'Monthly progress tracking',
-                                'Visual analytics',
-                                'Habit streak system',
-                                'Local persistence',
-                              ],
+                              items: keyFeatures,
                             ),
                             const SizedBox(height: 12),
                             _fullWidthCard(
                               title: 'Technical Decisions',
-                              items: [
-                                'Monthly progress tracking',
-                                'Visual analytics',
-                                'Habit streak system',
-                                'Local persistence',
-                              ],
+                              items: technicalDecisions,
                             ),
                             const SizedBox(height: 12),
                             ImageGallery(images: images),

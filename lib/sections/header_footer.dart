@@ -145,7 +145,9 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
 
 //
 class Footer extends StatelessWidget {
-  const Footer({super.key});
+  final VoidCallback? onScrollToTop;
+
+  const Footer({super.key, this.onScrollToTop});
 
   @override
   Widget build(BuildContext context) {
@@ -160,8 +162,10 @@ class Footer extends StatelessWidget {
           top: BorderSide(color: AppTheme.cardBackground, width: 1),
         ),
       ),
-      child: Column(
+      child: Row(
         children: [
+          Expanded(child: const SizedBox()),
+
           Text(
             '© 2025 Al-Nasser Haddad. All rights reserved.',
             style: TextStyle(
@@ -170,11 +174,51 @@ class Footer extends StatelessWidget {
             ),
             textAlign: TextAlign.center,
           ),
+          // Button to scroll to top
+          Expanded(
+            child: IconButton(
+              onPressed: onScrollToTop,
+              icon:
+              Icon(Icons.keyboard_arrow_up_rounded),
+            ),
+          ),
         ],
       ),
     );
   }
 }
+
+// class Footer extends StatelessWidget {
+//   const Footer({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     final mobile = isMobile(context);
+
+//     return Container(
+//       width: double.infinity,
+//       padding: EdgeInsets.symmetric(horizontal: mobile ? 24 : 80, vertical: 30),
+//       decoration: const BoxDecoration(
+//         color: Colors.black,
+//         border: Border(
+//           top: BorderSide(color: AppTheme.cardBackground, width: 1),
+//         ),
+//       ),
+//       child: Column(
+//         children: [
+//           Text(
+//             '© 2025 Al-Nasser Haddad. All rights reserved.',
+//             style: TextStyle(
+//               fontSize: mobile ? 12 : 14,
+//               color: AppTheme.textSecondary,
+//             ),
+//             textAlign: TextAlign.center,
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
 
 class AppDrawer extends StatelessWidget {
   final void Function(String section) onNavigate;
@@ -211,15 +255,15 @@ class AppDrawer extends StatelessWidget {
                     );
                   }).toList(),
             ),
-          //could be removed
+            //could be removed
             Container(
               margin: EdgeInsets.all(AppConstants.spacingXs),
               width: double.infinity,
               child: ElevatedButton(
-                
                 onPressed: () => openUrlExternal(heroData['cvUrl']),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: AppTheme.accentYellow, // The background color
+                  backgroundColor:
+                      AppTheme.accentYellow, // The background color
                   // foregroundColor: Colors.white, // The text/icon color
                 ),
                 child: const Text('Download CV'),

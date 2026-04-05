@@ -12,7 +12,8 @@ final List<Map<String, dynamic>> coursesData = [
     'platform': 'Google',
     'year': '2025',
     'borderColor': AppTheme.primaryCyan,
-    'url':'',
+    'url':
+        'https://www.coursera.org/professional-certificates/google-it-support',
     'icon': 'assets/icons/google.png',
     'description':
         'Developed foundational skills in troubleshooting, customer service, networking, and system administration.',
@@ -22,7 +23,8 @@ final List<Map<String, dynamic>> coursesData = [
     'platform': 'Google',
     'year': '2025',
     'borderColor': AppTheme.accentYellow,
-    'url':'',
+    'url':
+        'https://www.coursera.org/professional-certificates/google-ux-design',
     'icon': 'assets/icons/google.png',
     'description':
         'Mastered the end-to-end design process, from user research and wireframing to high-fidelity prototyping.',
@@ -32,7 +34,8 @@ final List<Map<String, dynamic>> coursesData = [
     'platform': 'Google',
     'year': '2024',
     'borderColor': AppTheme.primaryCyan,
-    'url':'',
+    'url':
+        'https://www.coursera.org/professional-certificates/google-project-management',
     'icon': 'assets/icons/google.png',
     'description':
         'Proficient in Agile and Waterfall methodologies, stakeholder communication, and managing project lifecycles.',
@@ -42,7 +45,8 @@ final List<Map<String, dynamic>> coursesData = [
     'platform': 'IBM',
     'year': '2026',
     'borderColor': AppTheme.accentYellow,
-    'url':'',
+    'url':
+        'https://www.coursera.org/specializations/cybersecurity-fundamentals',
     'icon': 'assets/icons/ibmpng.png',
     'description':
         'Mastered cybersecurity essentials, including threat mitigation, data privacy, and incident response to protect critical digital infrastructure.',

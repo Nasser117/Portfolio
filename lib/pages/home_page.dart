@@ -38,33 +38,54 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
+  void scrollToProjects() {
+    final key = _sectionKeys['projects'];
+    if (key?.currentContext != null) {
+      Scrollable.ensureVisible(
+        key!.currentContext!,
+        duration: const Duration(milliseconds: 500),
+        curve: Curves.easeInOut,
+      );
+    }
+  }
+
+  void scrollToTop() {
+    final key = _sectionKeys['home'];
+    if (key?.currentContext != null) {
+      Scrollable.ensureVisible(
+        key!.currentContext!,
+        duration: const Duration(milliseconds: 500),
+        curve: Curves.easeInOut,
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      endDrawer: AppDrawer(
-      onNavigate: _scrollToSection,
-    ),
-    
+      endDrawer: AppDrawer(onNavigate: _scrollToSection),
+
       body: SafeArea(
         child: Stack(
           children: [
             SingleChildScrollView(
               child: Column(
                 children: [
-                  HeroSection(key: _sectionKeys['home']),
+                  HeroSection(
+                    key: _sectionKeys['home'],
+                    onViewProjects: scrollToProjects,
+                  ),
                   AboutMeSection(key: _sectionKeys['about']),
                   SkillsSection(key: _sectionKeys['skills']),
                   ProjectsSection(key: _sectionKeys['projects']),
                   UIUXSection(key: _sectionKeys['uiux']),
                   CoursesSection(key: _sectionKeys['courses']),
                   ContactSection(key: _sectionKeys['contact']),
-                  const Footer(),
+                  Footer(onScrollToTop: scrollToTop),
                 ],
               ),
             ),
-            CustomNavigationBar(
-              onNavigate: _scrollToSection,
-            ),
+            CustomNavigationBar(onNavigate: _scrollToSection),
           ],
         ),
       ),

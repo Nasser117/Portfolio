@@ -35,8 +35,13 @@ final Map<String, dynamic> heroData = {
   ],
 };
 
+// class HeroSection extends StatelessWidget {
+
+//   const HeroSection({super.key});
 class HeroSection extends StatelessWidget {
-  const HeroSection({super.key});
+  final VoidCallback? onViewProjects;
+
+  const HeroSection({super.key, this.onViewProjects});
 
   @override
   Widget build(BuildContext context) {
@@ -154,7 +159,7 @@ class HeroSection extends StatelessWidget {
 
   Widget projectsButton() {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: onViewProjects,
       child: const Text('View Projects', style: TextStyle(fontSize: 14)),
     );
   }
