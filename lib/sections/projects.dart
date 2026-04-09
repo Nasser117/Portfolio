@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../theme/app_constants.dart';
@@ -10,6 +9,7 @@ import '../widgets/widgets.dart';
 // =======================
 List<Map<String, dynamic>> _projectsData() {
   return [
+    // library
     {
       'title': 'Tecno Library',
       'catchphrase': 'Your books. Organized. Everywhere.',
@@ -32,7 +32,7 @@ List<Map<String, dynamic>> _projectsData() {
       ],
       'githubUrl': 'https://github.com/Nasser117/Techno-Library',
       'demoUrl': null,
-      'techStack': ['Flutter', 'Firebase', 'REST API'],
+      'techStack': ['Flutter', 'Firebase', 'Laravel'],
       'problem': [
         'Scattered physical books',
         'No centralized catalog',
@@ -43,20 +43,21 @@ List<Map<String, dynamic>> _projectsData() {
       'challenges': [
         'State management',
         'Data synchronization',
-        'Search optimization',
+        'Book catagorization',
       ],
       'learnings': [
         'REST API integration',
-        'Firebase data modeling',
+        'Theme persistancy',
         'Scalable UI design',
       ],
-      'keyFeatures': ['Book cataloging', 'Advanced search', 'Cloud sync'],
+      'keyFeatures': ['Book cataloging', 'Advanced search', 'Book Lists'],
       'technicalDecisions': [
-        'Flutter for cross-platform',
-        'Firebase for backend',
+        'Dual Apps vs Roles',
+        'Bloc vs Getx',
         'Clean architecture',
       ],
     },
+    // fix me
     {
       'title': 'Fix Me',
       'catchphrase': 'Turn habits into progress.',
@@ -67,12 +68,10 @@ List<Map<String, dynamic>> _projectsData() {
       'image': 'assets/images/fixme.png',
       'images': [
         'assets/images/fixme.png',
-        'assets/images/fixme.png',
-        'assets/images/fixme.png',
       ],
       'githubUrl': null,
       'demoUrl': null,
-      'techStack': ['Flutter', 'BLoC', 'Hive'],
+      'techStack': ['Flutter', 'Cubit', 'Sqlite'],
       'problem': [
         'No progress tracking',
         'No visual motivation',
@@ -92,11 +91,12 @@ List<Map<String, dynamic>> _projectsData() {
         'Habit streak system',
       ],
       'technicalDecisions': [
-        'Hive for local storage',
+        'Sqlite for local storage',
         'BLoC for scalability',
         'Modular UI design',
       ],
     },
+    // jobly
     {
       'title': 'Jobly',
       'catchphrase': 'Connecting talent with opportunity.',
@@ -134,7 +134,7 @@ List<Map<String, dynamic>> _projectsData() {
       ],
       'githubUrl': 'https://github.com/Nasser117/Jobly',
       'demoUrl': null,
-      'techStack': ['Flutter', 'BLoC', 'SQLite'],
+      'techStack': ['Flutter', 'React', 'Laravel'],
       'problem': [
         'Fragmented job listings',
         'Difficult application tracking',
@@ -163,6 +163,7 @@ List<Map<String, dynamic>> _projectsData() {
         'Modular repository pattern',
       ],
     },
+    // tayar
     {
       'title': 'Tayar Shop',
       'catchphrase': 'E-commerce, simplified.',
@@ -190,20 +191,20 @@ List<Map<String, dynamic>> _projectsData() {
         'assets/tayar/worker/16.jpg',
         'assets/tayar/worker/17.jpg',
         'assets/tayar/worker/18.jpg',
-        'assets/tayar/worker/19.jpg',  
+        'assets/tayar/worker/19.jpg',
       ],
       'githubUrl': 'https://github.com/Nasser117/Tayar-user',
       'demoUrl': null,
-      'techStack': ['Flutter', 'Stripe', 'Node.js'],
+      'techStack': ['Flutter', 'React', 'Laravel'],
       'problem': [
         'High friction in checkout processes',
-        'Lack of secure payment options',
+        'Lack of after purchase survices',
         'Inconsistent product management',
       ],
       'solution':
           'Create a secure, fast-loading retail app with integrated Stripe payments and a custom Node.js backend.',
       'challenges': [
-        'Payment gateway integration',
+        'Payment integration',
         'Handling real-time stock updates',
         'Secure user authentication',
       ],
@@ -213,14 +214,14 @@ List<Map<String, dynamic>> _projectsData() {
         'Scalable product cataloging',
       ],
       'keyFeatures': [
-        'Secure Stripe checkout',
-        'Product wishlists',
+        'Full after purchase support',
+        'Simple set recommendation system ',
         'Real-time order updates',
       ],
       'technicalDecisions': [
-        'Node.js for a custom, scalable backend',
-        'Stripe API for PCI-compliant payments',
-        'Provider or BLoC for cart management',
+        'Laravel for a custom, scalable backend',
+        'Dual apps to handle shop + maintenance',
+        'Cubit for state management',
       ],
     },
   ];

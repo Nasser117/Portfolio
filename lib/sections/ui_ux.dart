@@ -12,7 +12,7 @@ List<Map<String, dynamic>> _uxData() {
     {
       'title': 'Fix Me',
       'design_goal':
-          'A pixel-perfect recreation of a modern swapping app interface, focusing on user experience and visual hierarchy.',
+          'A personal productivity and habit tracking app that utilizes visual analytics and streak systems to help users build lasting daily routines.',
       'image': 'assets/images/fixme.png',
       'ux_decisions': [
         'Simplified navigation with bottom tab bar for quick access to core features',

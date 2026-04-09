@@ -19,7 +19,8 @@ final Map<String, dynamic> heroData = {
   'description':
       'Crafting beautiful, performant mobile experiences that users love',
   // Buttons URLs
-  'cvUrl': 'https://raw.githubusercontent.com/Nasser117/CV/main/cv.pdf',
+  'cvUrl': 'https://raw.githubusercontent.com/Nasser117/CV/main/Al-Nasser_Haddad_CV_2026.pdf',
+  // https://github.com/Nasser117/CV/blob/c89748a0869a0bb3bd52bbfa59a0c6e5abc0c537/Al-Nasser%20Haddad%20CV%20-%202026.pdf
   // Social links
   'socials': [
     {
@@ -229,13 +230,9 @@ Widget cvPdfDialog(BuildContext context, String cvUrl) {
                   ),
                   Row(
                     children: [
-                      OutlinedButton.icon(
-                        style: OutlinedButton.styleFrom(
-                          foregroundColor: Colors.white,
-                          side: const BorderSide(color: Colors.white),
-                        ),
+                      IconButton(
+                        
                         icon: const Icon(Icons.download, size: 18),
-                        label: const Text('Download'),
                         onPressed: () async {
                           if (await canLaunchUrl(uri)) {
                             await launchUrl(
