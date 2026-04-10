@@ -23,9 +23,7 @@ List<Map<String, dynamic>> _uxData() {
           'Understanding the balance between aesthetic appeal and functional clarity. User testing revealed that subtle animations improved perceived app responsiveness without compromising usability.',
       'figma_url': 'https://www.figma.com/design/8LaPU3d3tJNg1WUh1CbGAF/fix-me?node-id=0-1&t=SSfzsssk0S1r0lIU-1',
       'images': [
-        'assets/images/me.png',
-        'assets/images/solar.png',
-        'assets/images/library.png',
+        'assets/images/fixme.png',
       ],
     },
 // 

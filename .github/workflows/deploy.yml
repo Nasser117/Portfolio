@@ -1,15 +1,20 @@
-name: Deploy to GitHub Pages
+name: Manual Build to Docs Automation
 
 on:
   push:
     branches:
-      - main # Or your default branch name
+      - main  # Trigger only when you push to main
+
+permissions:
+  contents: write
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
@@ -19,12 +24,19 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Build Web
-        # Replace YOUR_REPO_NAME with your actual repo name
-        run: flutter build web --release --base-href "/Portfolio/"
+      - name: Build Web (Step 2)
+        run: flutter build web --base-href "/Portfolio/"
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Clean and Copy to Docs (Step 1 & 3)
+        run: |
+          rm -rf docs
+          mkdir docs
+          cp -r build/web/* docs/
+          touch docs/.nojekyll
+
+      - name: Commit and Push changes (Step 4 & 5)
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build/web
+          commit_message: "Automated Build: Update docs folder"
+          branch: main
+          file_pattern: 'docs/*'
