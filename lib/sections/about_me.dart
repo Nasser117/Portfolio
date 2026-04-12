@@ -1,17 +1,9 @@
 import 'package:flutter/material.dart';
+import '../data/data.dart';
 import '../theme/app_constants.dart';
 import '../theme/app_theme.dart';
 import '../widgets/widgets.dart';
 
-// =======================
-// DATA SOURCES
-// =======================
-final Map<String, dynamic> aboutMeData = {
-  'description':
-      '''I'm a passionate mobile developer specializing in Flutter, with a keen eye for design and user experience. With 3+ years of experience, I transform ideas into polished, production-ready applications.
-
-My approach combines technical excellence with creative problem-solving, ensuring every app I build is not just functional, but delightful to use.''',
-};
 
 class AboutMeSection extends StatelessWidget {
   const AboutMeSection({super.key});

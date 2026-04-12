@@ -1,86 +1,10 @@
 // ignore_for_file: unnecessary_null_comparison
 import 'package:flutter/material.dart';
+import '../data/data.dart';
 import '../theme/app_constants.dart';
 import '../theme/app_theme.dart';
 import '../widgets/widgets.dart';
 
-// =======================
-// DATA SOURCES
-// =======================
-List<Map<String, dynamic>> _uxData() {
-  return [
-    {
-      'title': 'Fix Me',
-      'design_goal':
-          'A personal productivity and habit tracking app that utilizes visual analytics and streak systems to help users build lasting daily routines.',
-      'image': 'assets/images/fixme.png',
-      'ux_decisions': [
-        'Simplified navigation with bottom tab bar for quick access to core features',
-        'Visual progress indicators using rings and charts for immediate feedback',
-        'Gamification elements with achievements and streaks to maintain motivation',
-      ],
-      'learnings':
-          'Understanding the balance between aesthetic appeal and functional clarity. User testing revealed that subtle animations improved perceived app responsiveness without compromising usability.',
-      'figma_url': 'https://www.figma.com/design/8LaPU3d3tJNg1WUh1CbGAF/fix-me?node-id=0-1&t=SSfzsssk0S1r0lIU-1',
-      'images': [
-        'assets/images/fixme.png',
-      ],
-    },
-// 
-//     {
-//       'title': 'Jobly UX',
-//       'design_goal':
-//           'Redesigning job discovery flows to reduce cognitive load and improve application completion rate.',
-//       'image': 'assets/images/jobly.png',
-//       'ux_decisions': [
-//         'Clear visual separation between browsing and applying',
-//         'Progressive disclosure of job details',
-//         'One-tap save and apply actions',
-//       ],
-//       'learnings':
-//           'Users preferred fewer choices per screen. Reducing visible options improved task completion time significantly.',
-//       'figma_url': null,
-//       'images': ['assets/images/jobly.png', 'assets/images/library.png'],
-//     },
-// //   //  
-//     {
-//       'title': 'Fix Me',
-//       'design_goal':
-//           'A pixel-perfect recreation of a modern swapping app interface, focusing on user experience and visual hierarchy.',
-//       'image': 'assets/images/fixme.png',
-//       'ux_decisions': [
-//         'Simplified navigation with bottom tab bar for quick access to core features',
-//         'Visual progress indicators using rings and charts for immediate feedback',
-//         'Gamification elements with achievements and streaks to maintain motivation',
-//       ],
-//       'learnings':
-//           'Understanding the balance between aesthetic appeal and functional clarity. User testing revealed that subtle animations improved perceived app responsiveness without compromising usability.',
-//       'figma_url': 'https://www.figma.com/file/xxxxx',
-//       'images': [
-//         'assets/images/me.png',
-//         'assets/images/solar.png',
-//         'assets/images/library.png',
-//       ],
-//     },
-// //   //  
-//     {
-//       'title': 'Jobly UX',
-//       'design_goal':
-//           'Redesigning job discovery flows to reduce cognitive load and improve application completion rate.',
-//       'image': 'assets/images/jobly.png',
-//       'ux_decisions': [
-//         'Clear visual separation between browsing and applying',
-//         'Progressive disclosure of job details',
-//         'One-tap save and apply actions',
-//       ],
-//       'learnings':
-//           'Users preferred fewer choices per screen. Reducing visible options improved task completion time significantly.',
-//       'figma_url': null,
-//       'images': ['assets/images/jobly.png', 'assets/images/library.png'],
-//     },
-// // //  
-  ];
-}
 
 class UIUXSection extends StatelessWidget {
   const UIUXSection({super.key});
@@ -105,7 +29,7 @@ class UIUXSection extends StatelessWidget {
   }
 
   Widget _uxLayout(BuildContext context) {
-    final projects = _uxData();
+    final projects = uxData();
     const double maxLayoutWidth = AppConstants.desktopBreakpoint;
     const double spacing = AppConstants.spacingM;
 

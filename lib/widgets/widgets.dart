@@ -18,8 +18,10 @@ Future<void> openUrlExternal(String url) async {
   }
 }
 
-void navigateTo(context, Widget destination) =>
-    Navigator.push(context, MaterialPageRoute(builder: (context) => destination));
+void navigateTo(context, Widget destination) => Navigator.push(
+  context,
+  MaterialPageRoute(builder: (context) => destination),
+);
 
 class SocialIconButton extends StatefulWidget {
   final IconData icon;
@@ -95,8 +97,6 @@ class SectionTitle extends StatelessWidget {
   }
 }
 
-
-
 void launchMailWeb() {
   // final mailUrl = 'mailto:alnaser.h@gmail.com?subject=Portfolio Contact';
   // html.AnchorElement(href: mailUrl)
@@ -138,99 +138,186 @@ class _ImageGalleryState extends State<ImageGallery> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints: const BoxConstraints(maxWidth: 900, maxHeight: 600),
+      constraints: const BoxConstraints(maxWidth: 900, maxHeight: 400),
       decoration: BoxDecoration(
         color: AppTheme.darkBackground,
         borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
         children: [
-          // Fullscreen image viewer
+          // 1. Fullscreen image viewer (No longer a Stack with arrows)
           Expanded(
-            child: Stack(
+            child: Center(
+              child: InteractiveViewer(
+                child: Image.asset(
+                  widget.images[_currentIndex],
+                  fit: BoxFit.contain,
+                ),
+              ),
+            ),
+          ),
+
+          // 2. Navigation Controls & Thumbnails
+          Container(
+            height: 90, // Slightly increased height to accommodate arrows
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+            child: Row(
               children: [
-                Center(
-                  child: InteractiveViewer(
-                    child: Image.asset(
-                      widget.images[_currentIndex],
-                      fit: BoxFit.contain,
-                    ),
-                  ),
+                // Left arrow
+                IconButton(
+                  iconSize: 30,
+                  color: Colors.white.withValues(alpha: 0.7),
+                  icon: const Icon(Icons.arrow_back_ios),
+                  onPressed: _prevImage,
                 ),
 
-                // Left arrow
-                Positioned(
-                  left: 0,
-                  top: 0,
-                  bottom: 0,
-                  child: IconButton(
-                    iconSize: 40,
-                    color: Colors.white.withValues(alpha: 0.7),
-                    icon: const Icon(Icons.arrow_back_ios),
-                    onPressed: _prevImage,
+                // Thumbnail List
+                Expanded(
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: widget.images.length,
+                    itemBuilder: (context, index) {
+                      return GestureDetector(
+                        onTap: () => _showImage(index),
+                        child: Container(
+                          margin: const EdgeInsets.symmetric(horizontal: 4),
+                          // ... your existing thumbnail decoration/padding ...
+                          decoration: BoxDecoration(
+                            border:
+                                _currentIndex == index
+                                    ? Border.all(
+                                      color: AppTheme.primaryCyan,
+                                      width: 2,
+                                    )
+                                    : null,
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8),
+                            child: Image.asset(
+                              widget.images[index],
+                              width: 70,
+                              height: 70,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                      );
+                    },
                   ),
                 ),
 
                 // Right arrow
-                Positioned(
-                  right: 0,
-                  top: 0,
-                  bottom: 0,
-                  child: IconButton(
-                    iconSize: 40,
-                    color: Colors.white.withValues(alpha: 0.7),
-                    icon: const Icon(Icons.arrow_forward_ios),
-                    onPressed: _nextImage,
-                  ),
+                IconButton(
+                  iconSize: 30,
+                  color: Colors.white.withValues(alpha: 0.7),
+                  icon: const Icon(Icons.arrow_forward_ios),
+                  onPressed: _nextImage,
                 ),
               ],
-            ),
-          ),
-
-          // Thumbnails
-          Container(
-            height: 80,
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: widget.images.length,
-              itemBuilder: (context, index) {
-                return GestureDetector(
-                  onTap: () => _showImage(index),
-                  child: Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 4),
-                    padding:
-                        _currentIndex == index
-                            ? const EdgeInsets.all(2)
-                            : EdgeInsets.zero,
-                    decoration: BoxDecoration(
-                      border:
-                          _currentIndex == index
-                              ? Border.all(
-                                color: AppTheme.primaryCyan,
-                                width: 2,
-                              )
-                              : null,
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(8),
-                      child: Image.asset(
-                        widget.images[index],
-                        width: 70,
-                        height: 70,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                );
-              },
             ),
           ),
         ],
       ),
     );
   }
+
+  // @override
+  // Widget build(BuildContext context) {
+  //   return Container(
+  //     constraints: const BoxConstraints(maxWidth: 900, maxHeight: 400),
+  //     decoration: BoxDecoration(
+  //       color: AppTheme.darkBackground,
+  //       borderRadius: BorderRadius.circular(16),
+  //     ),
+  //     child: Column(
+  //       children: [
+  //         // Fullscreen image viewer
+  //         Expanded(
+  //           child: Stack(
+  //             children: [
+  //               Center(
+  //                 child: InteractiveViewer(
+  //                   child: Image.asset(
+  //                     widget.images[_currentIndex],
+  //                     fit: BoxFit.contain,
+  //                   ),
+  //                 ),
+  //               ),
+
+  //               // Left arrow
+  //               Positioned(
+  //                 left: 0,
+  //                 top: 0,
+  //                 bottom: 0,
+  //                 child: IconButton(
+  //                   iconSize: 40,
+  //                   color: Colors.white.withValues(alpha: 0.7),
+  //                   icon: const Icon(Icons.arrow_back_ios),
+  //                   onPressed: _prevImage,
+  //                 ),
+  //               ),
+
+  //               // Right arrow
+  //               Positioned(
+  //                 right: 0,
+  //                 top: 0,
+  //                 bottom: 0,
+  //                 child: IconButton(
+  //                   iconSize: 40,
+  //                   color: Colors.white.withValues(alpha: 0.7),
+  //                   icon: const Icon(Icons.arrow_forward_ios),
+  //                   onPressed: _nextImage,
+  //                 ),
+  //               ),
+  //             ],
+  //           ),
+  //         ),
+
+  //         // Thumbnails
+  //         Container(
+  //           height: 80,
+  //           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+  //           child: ListView.builder(
+  //             scrollDirection: Axis.horizontal,
+  //             itemCount: widget.images.length,
+  //             itemBuilder: (context, index) {
+  //               return GestureDetector(
+  //                 onTap: () => _showImage(index),
+  //                 child: Container(
+  //                   margin: const EdgeInsets.symmetric(horizontal: 4),
+  //                   padding:
+  //                       _currentIndex == index
+  //                           ? const EdgeInsets.all(2)
+  //                           : EdgeInsets.zero,
+  //                   decoration: BoxDecoration(
+  //                     border:
+  //                         _currentIndex == index
+  //                             ? Border.all(
+  //                               color: AppTheme.primaryCyan,
+  //                               width: 2,
+  //                             )
+  //                             : null,
+  //                     borderRadius: BorderRadius.circular(8),
+  //                   ),
+  //                   child: ClipRRect(
+  //                     borderRadius: BorderRadius.circular(8),
+  //                     child: Image.asset(
+  //                       widget.images[index],
+  //                       width: 70,
+  //                       height: 70,
+  //                       fit: BoxFit.cover,
+  //                     ),
+  //                   ),
+  //                 ),
+  //               );
+  //             },
+  //           ),
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
 }
 
 Widget holderContainer({
@@ -275,5 +362,3 @@ Widget holderContainer({
     ),
   );
 }
-
-

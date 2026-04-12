@@ -1,38 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:portfolio_v_1_0/theme/app_constants.dart';
+import '../data/data.dart';
+import '../theme/app_constants.dart';
 import '../theme/app_theme.dart';
 import '../widgets/widgets.dart';
 
-// =======================
-// DATA SOURCES
-// =======================
-final List<Map<String, dynamic>> skillsData = [
-  {
-    'icon': Icons.code,
-    'title': 'Languages',
-    'skills': ['Dart', 'Java', 'Python'],
-  },
-  {
-    'icon': FontAwesomeIcons.mobileScreen,
-    'title': 'Frameworks',
-    'skills': ['Flutter'],
-  },
-  {
-    'icon': FontAwesomeIcons.wrench,
-    'title': 'Tools',
-    'skills': ['Figma', 'GitHub', 'Draw IO'],
-  },
-  {
-    'icon': FontAwesomeIcons.lightbulb,
-    'title': 'Strengths',
-    'skills': [
-      'Mobile Architecture',
-      'Clean UI Implementation',
-      'UX-Oriented Development',
-    ],
-  },
-];
 
 class SkillsSection extends StatelessWidget {
   const SkillsSection({super.key});

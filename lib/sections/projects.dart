@@ -1,229 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import '../data/data.dart';
 import '../theme/app_constants.dart';
 import '../theme/app_theme.dart';
 import '../widgets/widgets.dart';
-
-// =======================
-// DATA SOURCES
-// =======================
-List<Map<String, dynamic>> _projectsData() {
-  return [
-    // library
-    {
-      'title': 'Tecno Library',
-      'catchphrase': 'Your books. Organized. Everywhere.',
-      'description':
-          'A comprehensive digital library platform designed to help users catalog, search, and manage their book collections with seamless cloud sync.',
-      'role': 'UI/UX Design, Mobile Developer',
-      'color': const Color.fromARGB(255, 146, 0, 0),
-      'image': 'assets/images/library.png',
-      'images': [
-        'assets/tecno_library/11.png',
-        'assets/tecno_library/12.png',
-        'assets/tecno_library/13.png',
-        'assets/tecno_library/14.png',
-        'assets/tecno_library/15.png',
-        'assets/tecno_library/16.png',
-        // 'assets/tecno_library/7.jpg',
-        // 'assets/tecno_library/8.jpg',
-        'assets/tecno_library/9.jpg',
-        'assets/tecno_library/10.jpg',
-      ],
-      'githubUrl': 'https://github.com/Nasser117/Techno-Library',
-      'demoUrl': null,
-      'techStack': ['Flutter', 'Firebase', 'Laravel'],
-      'problem': [
-        'Scattered physical books',
-        'No centralized catalog',
-        'Difficult search and tracking',
-      ],
-      'solution':
-          'Build a digital library that allows users to catalog, search, and manage books efficiently.',
-      'challenges': [
-        'State management',
-        'Data synchronization',
-        'Book catagorization',
-      ],
-      'learnings': [
-        'REST API integration',
-        'Theme persistancy',
-        'Scalable UI design',
-      ],
-      'keyFeatures': ['Book cataloging', 'Advanced search', 'Book Lists'],
-      'technicalDecisions': [
-        'Dual Apps vs Roles',
-        'Bloc vs Getx',
-        'Clean architecture',
-      ],
-    },
-    // fix me
-    {
-      'title': 'Fix Me',
-      'catchphrase': 'Turn habits into progress.',
-      'description':
-          'A personal productivity and habit tracking app that utilizes visual analytics and streak systems to help users build lasting daily routines.',
-      'role': 'UI/UX Design, Mobile Developer',
-      'color': const Color.fromARGB(255, 255, 139, 7),
-      'image': 'assets/images/fixme.png',
-      'images': [
-        'assets/images/fixme.png',
-      ],
-      'githubUrl': null,
-      'demoUrl': null,
-      'techStack': ['Flutter', 'Cubit', 'Sqlite'],
-      'problem': [
-        'No progress tracking',
-        'No visual motivation',
-        'Lack of structure',
-      ],
-      'solution':
-          'Create a habit-based productivity app with visual analytics and streak tracking.',
-      'challenges': ['State management', 'Local persistence', 'UX clarity'],
-      'learnings': [
-        'BLoC architecture',
-        'UX-driven planning',
-        'Scalable structure',
-      ],
-      'keyFeatures': [
-        'Monthly progress tracking',
-        'Visual analytics',
-        'Habit streak system',
-      ],
-      'technicalDecisions': [
-        'Sqlite for local storage',
-        'BLoC for scalability',
-        'Modular UI design',
-      ],
-    },
-    // jobly
-    {
-      'title': 'Jobly',
-      'catchphrase': 'Connecting talent with opportunity.',
-      'description':
-          'A streamlined job search platform designed to bridge the gap between recruiters and seekers with a focus on speed and local offline access.',
-      'role': 'UI/UX Design, Mobile Developer',
-      'color': AppTheme.accentPurple,
-      'image': 'assets/images/jobly.png',
-      'images': [
-        'assets/jobly/26.png',
-        'assets/jobly/27.png',
-        'assets/jobly/28.png',
-        'assets/jobly/29.png',
-        'assets/jobly/30.png',
-        'assets/jobly/31.png',
-        'assets/jobly/32.png',
-        'assets/jobly/33.png',
-        'assets/jobly/34.png',
-        'assets/jobly/35.png',
-        'assets/jobly/36.png',
-        'assets/jobly/37.png',
-        'assets/jobly/38.png',
-        'assets/jobly/39.png',
-        'assets/jobly/40.png',
-        'assets/jobly/41.png',
-        'assets/jobly/42.png',
-        'assets/jobly/43.png',
-        'assets/jobly/44.png',
-        'assets/jobly/45.png',
-        'assets/jobly/46.png',
-        'assets/jobly/47.png',
-        'assets/jobly/25.jpg',
-      ],
-      'githubUrl': 'https://github.com/Nasser117/Jobly',
-      'demoUrl': null,
-      'techStack': ['Flutter', 'React', 'Laravel'],
-      'problem': [
-        'Fragmented job listings',
-        'Difficult application tracking',
-        'Poor offline accessibility',
-      ],
-      'solution':
-          'Develop a robust mobile application with local caching for seamless browsing and an intuitive application management system.',
-      'challenges': [
-        'Complex relational data modeling',
-        'Handling asynchronous job feeds',
-        'Maintaining app performance with large datasets',
-      ],
-      'learnings': [
-        'Advanced BLoC state management',
-        'SQLite database optimization',
-        'User-centric job filtering logic',
-      ],
-      'keyFeatures': [
-        'Offline job saving',
-        'Advanced category filtering',
-        'Application status tracker',
-      ],
-      'technicalDecisions': [
-        'SQLite for persistent offline access',
-        'BLoC for predictable state transitions',
-        'Modular repository pattern',
-      ],
-    },
-    // tayar
-    {
-      'title': 'Tayar Shop',
-      'catchphrase': 'E-commerce, simplified.',
-      'description':
-          'A modern e-commerce platform offering a smooth shopping experience with integrated payment gateways and real-time order tracking systems.',
-      'role': 'UI/UX Design, Mobile Developer',
-      'color': const Color.from(alpha: 1, red: 0, green: 1, blue: 0.898),
-      'image': 'assets/images/solar.png',
-      'images': [
-        'assets/tayar/user/15.png',
-        'assets/tayar/user/16.png',
-        'assets/tayar/user/17.png',
-        'assets/tayar/user/18.png',
-        'assets/tayar/user/19.png',
-        'assets/tayar/user/20.png',
-        'assets/tayar/user/21.png',
-        'assets/tayar/user/22.png',
-        'assets/tayar/user/23.png',
-        'assets/tayar/user/24.png',
-        'assets/tayar/user/25.png',
-        'assets/tayar/user/26.png',
-        'assets/tayar/user/27.png',
-        'assets/tayar/user/28.png',
-        'assets/tayar/worker/20.png',
-        'assets/tayar/worker/21.png',
-        'assets/tayar/worker/22.png',
-        'assets/tayar/worker/23.png',
-        'assets/tayar/worker/24.png',
-      ],
-      'githubUrl': 'https://github.com/Nasser117/Tayar-user',
-      'demoUrl': null,
-      'techStack': ['Flutter', 'React', 'Laravel'],
-      'problem': [
-        'High friction in checkout processes',
-        'Lack of after purchase survices',
-        'Inconsistent product management',
-      ],
-      'solution':
-          'Create a secure, fast-loading retail app with integrated Stripe payments and a custom Node.js backend.',
-      'challenges': [
-        'Payment integration',
-        'Handling real-time stock updates',
-        'Secure user authentication',
-      ],
-      'learnings': [
-        'Financial transaction security',
-        'Backend-to-frontend communication',
-        'Scalable product cataloging',
-      ],
-      'keyFeatures': [
-        'Full after purchase support',
-        'Simple set recommendation system ',
-        'Real-time order updates',
-      ],
-      'technicalDecisions': [
-        'Laravel for a custom, scalable backend',
-        'Dual apps to handle shop + maintenance',
-        'Cubit for state management',
-      ],
-    },
-  ];
-}
 
 class ProjectsSection extends StatelessWidget {
   const ProjectsSection({super.key});
@@ -249,7 +29,7 @@ class ProjectsSection extends StatelessWidget {
   }
 
   Widget _projectsDesktop(BuildContext context) {
-    final projects = _projectsData();
+    final projects = projectsData();
     final screenWidth = MediaQuery.of(context).size.width;
 
     final double spacing = AppConstants.spacingL;
@@ -312,7 +92,7 @@ class _ProjectCardState extends State<ProjectCard> {
     // final List<String> images = List<String>.from(p['images']);
     final List<String> techStack = List<String>.from(p['techStack']);
     final String? githubUrl = p['githubUrl'];
-    // final String? demoUrl = p['demoUrl'];
+    final String? demoUrl = p['demoUrl'];
 
     final screenWidth = MediaQuery.of(context).size.width;
     final isMobile = screenWidth < 800;
@@ -496,16 +276,21 @@ class _ProjectCardState extends State<ProjectCard> {
                                           : null,
                                 ),
                               ),
-                              SizedBox(
-                                width: double.infinity,
-                                child: _buildOutlinedButton(
-                                  context,
-                                  'View Demo',
-                                  icon: FontAwesomeIcons.upRightFromSquare,
-                                  AppTheme.primaryCyan,
-                                  onTap: () {},
+                              // demo
+                              if (demoUrl != null) ...[
+                                SizedBox(
+                                  width: double.infinity,
+                                  child: _buildOutlinedButton(
+                                    context,
+                                    'View Demo',
+                                    icon: FontAwesomeIcons.upRightFromSquare,
+                                    AppTheme.primaryCyan,
+                                    onTap: () {
+                                      // Add your URL launcher logic here
+                                    },
+                                  ),
                                 ),
-                              ),
+                              ],
                             ],
                           ),
                         )
@@ -513,6 +298,7 @@ class _ProjectCardState extends State<ProjectCard> {
                           spacing: AppConstants.spacingXs,
                           runSpacing: AppConstants.spacingXs,
                           children: [
+                            //details
                             _buildOutlinedButton(
                               context,
                               'View Details',
@@ -529,6 +315,7 @@ class _ProjectCardState extends State<ProjectCard> {
                                 );
                               },
                             ),
+                            // github
                             _buildElevatedButton(
                               hasGithub ? 'GitHub' : 'Coming Soon',
                               icon: FontAwesomeIcons.github,
@@ -538,13 +325,24 @@ class _ProjectCardState extends State<ProjectCard> {
                                       ? () => openUrlExternal(githubUrl)
                                       : null,
                             ),
-                            _buildOutlinedButton(
-                              context,
-                              onTap: () {},
-                              'View Demo',
-                              icon: FontAwesomeIcons.upRightFromSquare,
-                              AppTheme.primaryCyan,
-                            ),
+                            // demo
+                            if (demoUrl != null) ...[
+                              const SizedBox(
+                                height: 16,
+                              ), // Optional: spacing before the button
+                              SizedBox(
+                                width: double.infinity,
+                                child: _buildOutlinedButton(
+                                  context,
+                                  'View Demo',
+                                  icon: FontAwesomeIcons.upRightFromSquare,
+                                  AppTheme.primaryCyan,
+                                  onTap: () {
+                                    // Add your URL launcher logic here
+                                  },
+                                ),
+                              ),
+                            ],
                           ],
                         ),
                   ],
@@ -861,7 +659,11 @@ Widget _header({
     children: [
       Row(
         children: [
-          CircleAvatar(backgroundImage: AssetImage(image), radius: 25),
+          CircleAvatar(
+            backgroundImage: AssetImage(image),
+            radius: 25,
+            backgroundColor: Colors.white,
+          ),
           const SizedBox(width: 12),
           Text(title, style: const TextStyle(fontSize: 28)),
         ],
@@ -1082,7 +884,7 @@ class ProjectDetailsPage extends StatelessWidget {
                       break;
                     default:
                       childAspectRatio = 1.0;
-                      mainAxisExtent = null;
+                      mainAxisExtent = 200;
                   }
 
                   return CustomScrollView(

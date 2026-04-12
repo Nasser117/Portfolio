@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import '../data/data.dart';
 import '../theme/app_constants.dart';
 import '../theme/app_theme.dart';
 import '../widgets/widgets.dart';
-import 'hero.dart';
 
 class CustomNavigationBar extends StatefulWidget {
   final Function(String) onNavigate;
@@ -167,7 +167,7 @@ class Footer extends StatelessWidget {
           Expanded(child: const SizedBox()),
 
           Text(
-            '© 2025 Al-Nasser Haddad. All rights reserved.',
+            '© 2026 Al-Nasser Haddad. All rights reserved.',
             style: TextStyle(
               fontSize: mobile ? 12 : 14,
               color: AppTheme.textSecondary,

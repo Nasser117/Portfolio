@@ -1,44 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 import 'package:url_launcher/url_launcher.dart';
+import '../data/data.dart';
 import '../theme/app_constants.dart';
 import '../theme/app_theme.dart';
 import '../widgets/widgets.dart';
 import 'package:flutter/foundation.dart';
 
-// =======================
-// DATA SOURCES
-// =======================
-final Map<String, dynamic> heroData = {
-  // Avatar image
-  'avatar': 'assets/images/me.png',
-  // Name & title
-  'name': 'Al-Nasser Haddad',
-  'subtitle': 'Software Engineer | Flutter Developer | UI/UX Enthusiast',
-  'description':
-      'Crafting beautiful, performant mobile experiences that users love',
-  // Buttons URLs
-  'cvUrl': 'https://raw.githubusercontent.com/Nasser117/CV/main/Al-Nasser_Haddad_CV_2026.pdf',
-  // https://github.com/Nasser117/CV/blob/c89748a0869a0bb3bd52bbfa59a0c6e5abc0c537/Al-Nasser%20Haddad%20CV%20-%202026.pdf
-  // Social links
-  'socials': [
-    {
-      'icon': FontAwesomeIcons.linkedin,
-      'url': 'https://www.linkedin.com/in/al-nasser-haddad-b4a1b42b1/',
-    },
-    {
-      'icon': Icons.mail,
-      'url':
-          'https://mail.google.com/mail/?view=cm&fs=1&to=alnaser.h@gmail.com&su=Portfolio%20Contact',
-    },
-    {'icon': FontAwesomeIcons.github, 'url': 'https://github.com/Nasser117'},
-  ],
-};
 
-// class HeroSection extends StatelessWidget {
-
-//   const HeroSection({super.key});
 class HeroSection extends StatelessWidget {
   final VoidCallback? onViewProjects;
 

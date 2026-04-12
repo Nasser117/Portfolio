@@ -1,69 +1,8 @@
 import 'package:flutter/material.dart';
+import '../data/data.dart';
 import '../theme/app_constants.dart';
 import '../theme/app_theme.dart';
 import '../widgets/widgets.dart';
-
-// =======================
-// DATA SOURCES
-// =======================
-final List<Map<String, dynamic>> coursesData = [
-  {
-    'title': 'Google IT Support',
-    'platform': 'Google',
-    'year': '2025',
-    'borderColor': AppTheme.primaryCyan,
-    'url':
-        'https://www.coursera.org/professional-certificates/google-it-support',
-    'icon': 'assets/icons/google.png',
-    'description':
-        'Developed foundational skills in troubleshooting, customer service, networking, and system administration.',
-  },
-  {
-    'title': 'Google UX Design',
-    'platform': 'Google',
-    'year': '2025',
-    'borderColor': AppTheme.accentYellow,
-    'url':
-        'https://www.coursera.org/professional-certificates/google-ux-design',
-    'icon': 'assets/icons/google.png',
-    'description':
-        'Mastered the end-to-end design process, from user research and wireframing to high-fidelity prototyping.',
-  },
-  {
-    'title': 'Google Project Management',
-    'platform': 'Google',
-    'year': '2024',
-    'borderColor': AppTheme.primaryCyan,
-    'url':
-        'https://www.coursera.org/professional-certificates/google-project-management',
-    'icon': 'assets/icons/google.png',
-    'description':
-        'Proficient in Agile and Waterfall methodologies, stakeholder communication, and managing project lifecycles.',
-  },
-  {
-    'title': 'Cybersecurity Fundamentals Specialization',
-    'platform': 'IBM',
-    'year': '2026',
-    'borderColor': AppTheme.accentYellow,
-    'url':
-        'https://www.coursera.org/specializations/cybersecurity-fundamentals',
-    'icon': 'assets/icons/ibmpng.png',
-    'description':
-        'Mastered cybersecurity essentials, including threat mitigation, data privacy, and incident response to protect critical digital infrastructure.',
-  },
-];
-
-final List<Map<String, dynamic>> volunteeringData = [
-  {
-    'organization': 'Syrian Association For AI and Entrepreneurhip',
-    'date': 'Sep 2025 - Present',
-    'logo': 'assets/images/saae.png',
-    'url': 'https://aisyria.org/',
-    'borderColor': AppTheme.primaryCyan,
-    'description':
-        'Participating in tech events and representing the association at national fairs and expeditions to promote AI literacy. Bridging the gap between complex technology and the public, fostering community engagement and ecosystem growth.',
-  },
-];
 
 // =======================
 // UI
